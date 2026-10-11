@@ -18,8 +18,8 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
 <meta property="og:description" content="Beschikbaarheid, carpool en herinneringen voor je sportploeg op één link. Niemand hoeft iets te installeren.">
 <meta property="og:image" content="https://rostiq.be/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
@@ -199,6 +199,22 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
   @media (max-width: 900px) { .features { grid-template-columns: 1fr 1fr; } .feat.big { grid-column: 1 / -1; grid-template-columns: 1fr; } }
   @media (max-width: 600px) { .features { grid-template-columns: 1fr; } }
 
+  /* Demo cards */
+  .demo-sec { background: #fff; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; }
+  .demo-card { position: relative; overflow: hidden; display: grid; gap: 4px; padding: 24px 22px 20px; border-radius: var(--radius); color: #fff; text-decoration: none;
+    background: linear-gradient(150deg, var(--c1), color-mix(in srgb, var(--c1) 70%, #000)); box-shadow: 0 20px 40px -26px rgb(0 0 0 / .6);
+    transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
+  .demo-card::after { content: ""; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: var(--c2); opacity: .22; }
+  .demo-card:hover { transform: translateY(-5px); box-shadow: 0 28px 50px -24px rgb(0 0 0 / .7); }
+  .demo-card .d-emoji { font-size: 2rem; margin-bottom: 8px; }
+  .demo-card b { font-size: 1.3rem; letter-spacing: -.01em; }
+  .demo-card span:not(.d-emoji) { opacity: .85; font-weight: 600; }
+  .demo-card small { opacity: .7; }
+  .demo-card i { font-style: normal; font-weight: 800; margin-top: 14px; color: var(--c2); }
+  @media (max-width: 900px) { .demos { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .demos { grid-template-columns: 1fr; } }
+
   /* Steps */
   .steps-sec { background: #fff; }
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; counter-reset: s; }
@@ -214,7 +230,9 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
   .sports { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 34px; }
   .sport { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-weight: 700; font-size: 1rem;
     box-shadow: 0 6px 18px -14px rgb(30 27 75 / .5); }
-  .sport span { font-size: 1.4rem; }
+  .sport span:first-child { font-size: 1.4rem; }
+  a.sport { color: inherit; text-decoration: none; transition: transform .2s var(--ease), border-color .2s; }
+  a.sport:hover { transform: translateY(-2px); border-color: var(--violet-2); }
 
   /* Compare */
   .compare-wrap { margin-top: 44px; overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; }
@@ -283,8 +301,9 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
 <body>
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="RostiQ"><img src="assets/rostiq-logo-header.png" alt="RostiQ" width="120" height="30"></a>
+    <a class="logo" href="#top" aria-label="RostiQ"><img src="/assets/rostiq-logo-header.png" alt="RostiQ" width="120" height="30"></a>
     <nav class="links">
+      <a href="#demo" data-t="nav.demo">Demo</a>
       <a href="#how" data-t="nav.how">Hoe het werkt</a>
       <a href="#features" data-t="nav.features">Functies</a>
       <a href="#price" data-t="nav.price">Prijs</a>
@@ -310,7 +329,7 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
         <p class="lead" data-t="hero.lead">RostiQ zet beschikbaarheid, carpool en herinneringen op één link die je in je groep deelt. Iedereen antwoordt in één tik – niemand hoeft iets te installeren.</p>
         <div class="ctas">
           <a class="btn btn-hot btn-lg" href="https://app.rostiq.be/start.html"><span data-t="hero.cta">Start je ploeg – gratis</span> <span data-ic="arrow-right"></span></a>
-          <a class="btn btn-ghost btn-lg" href="#how" data-t="hero.cta2">Bekijk hoe het werkt</a>
+          <a class="btn btn-ghost btn-lg" href="#demo" data-t="hero.cta2">Probeer de demo</a>
         </div>
         <div class="ticks">
           <span><span data-ic="check"></span> <span data-t="hero.t1">Geen app nodig</span></span>
@@ -403,6 +422,23 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
     </div>
   </div>
 
+  <!-- DEMO -->
+  <section class="demo-sec" id="demo">
+    <div class="wrap">
+      <div class="center rv">
+        <span class="kicker" data-t="demo.k">Probeer het zelf</span>
+        <h2 data-t="demo.h">Klik rond in een echte ploeg.</h2>
+        <p class="sec-lead" data-t="demo.lead">Geen account, geen installatie. Open een demoploeg, geef je antwoord, regel een lift of kijk rond als beheerder.</p>
+      </div>
+      <div class="demos" data-no-icons>
+        <a class="demo-card rv" href="https://app.rostiq.be/?demo=football" style="--c1:#14532d;--c2:#facc15"><span class="d-emoji">⚽</span><b data-t="demo.football">Voetbal</b><span>KFC Zuiderpark</span><small data-t="demo.footballS">17 spelers · thuis en uit · carpool</small><i data-t="demo.open">Open demo →</i></a>
+        <a class="demo-card rv" href="https://app.rostiq.be/?demo=padel" style="--c1:#0c4a6e;--c2:#a3e635"><span class="d-emoji">🎾</span><b>Padel</b><span>Smash & Co</span><small data-t="demo.padelS">Interclub · 4 spelers per match</small><i data-t="demo.open">Open demo →</i></a>
+        <a class="demo-card rv" href="https://app.rostiq.be/?demo=hockey" style="--c1:#7f1d1d;--c2:#fbbf24"><span class="d-emoji">🏑</span><b>Hockey</b><span>HC Scheldevallei</span><small data-t="demo.hockeyS">Dames 1 · 16 speelsters</small><i data-t="demo.open">Open demo →</i></a>
+        <a class="demo-card rv" href="https://app.rostiq.be/?demo=golf" style="--c1:#1f3a2e;--c2:#cdb994"><span class="d-emoji">⛳</span><b>Golf</b><span>Golfclub De Linde</span><small data-t="demo.golfS">Interclub · hele dag op verplaatsing</small><i data-t="demo.open">Open demo →</i></a>
+      </div>
+    </div>
+  </section>
+
   <!-- FEATURES -->
   <section id="features">
     <div class="wrap">
@@ -458,11 +494,11 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
       <h2 data-t="sp.h">Van padel tot hockey.</h2>
       <p class="sec-lead" data-t="sp.lead">RostiQ past zich aan je sport aan: het minimum aantal spelers, de duur van een wedstrijd en de velden die je spelers invullen.</p>
       <div class="sports" data-no-icons>
-        <span class="sport"><span>⛳</span><span data-t="sp.golf">Golf</span></span>
-        <span class="sport"><span>🎾</span><span data-t="sp.padel">Padel</span></span>
+        <a class="sport" href="/golf/"><span>⛳</span><span data-t="sp.golf">Golf</span></a>
+        <a class="sport" href="/padel/"><span>🎾</span><span data-t="sp.padel">Padel</span></a>
         <span class="sport"><span>🎾</span><span data-t="sp.tennis">Tennis</span></span>
-        <span class="sport"><span>🏑</span><span data-t="sp.hockey">Hockey</span></span>
-        <span class="sport"><span>⚽</span><span data-t="sp.football">Voetbal</span></span>
+        <a class="sport" href="/hockey/"><span>🏑</span><span data-t="sp.hockey">Hockey</span></a>
+        <a class="sport" href="/voetbal/"><span>⚽</span><span data-t="sp.football">Voetbal</span></a>
         <span class="sport"><span>🏀</span><span data-t="sp.basket">Basketbal</span></span>
         <span class="sport"><span>🏐</span><span data-t="sp.volley">Volleybal</span></span>
         <span class="sport"><span>🏆</span><span data-t="sp.more">En meer</span></span>
@@ -558,7 +594,7 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
       <p data-t="end.p">Zet je ploeg vandaag nog op RostiQ. Gratis, in een minuut, zonder dat iemand iets hoeft te installeren.</p>
       <div class="ctas">
         <a class="btn btn-hot btn-lg" href="https://app.rostiq.be/start.html"><span data-t="hero.cta">Start je ploeg – gratis</span> <span data-ic="arrow-right"></span></a>
-        <a class="btn btn-ghost btn-lg" href="https://app.rostiq.be/?pick" data-t="end.signin">Ik heb al een ploeg</a>
+        <a class="btn btn-ghost btn-lg" href="#demo" data-t="hero.cta2">Probeer de demo</a>
       </div>
     </div>
   </section>
@@ -566,7 +602,7 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
 
 <footer>
   <div class="wrap">
-    <img src="assets/rostiq-logo-header.png" alt="RostiQ" width="96" height="24">
+    <img src="/assets/rostiq-logo-header.png" alt="RostiQ" width="96" height="24">
     <nav>
       <a href="https://app.rostiq.be/privacy.html" data-t="ft.privacy">Privacy</a>
       <a href="https://app.rostiq.be/?pick" data-t="nav.signin">Aanmelden</a>
@@ -577,22 +613,25 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
   </div>
 </footer>
 
-<script src="icons.js"></script>
+<script src="/icons.js"></script>
 <script>
 // ---- Texts (NL is in the HTML; EN and FR here). The choice is shared with the app (localStorage "lang"). ----
 const TXT = {
   en: {
-    "nav.how": "How it works", "nav.features": "Features", "nav.price": "Price", "nav.faq": "FAQ", "nav.signin": "Sign in", "nav.start": "Start free",
+    "nav.demo": "Demo", "nav.how": "How it works", "nav.features": "Features", "nav.price": "Price", "nav.faq": "FAQ", "nav.signin": "Sign in", "nav.start": "Start free",
     "hero.badge": "New", "hero.eyebrow": "Free during the pilot · Made in Belgium",
     "hero.h1a": "Stop counting in the", "hero.h1b": "WhatsApp group.",
     "hero.lead": "RostiQ puts availability, carpools and reminders on one link you share in your group. Everyone answers with one tap – nobody has to install anything.",
-    "hero.cta": "Start your team – free", "hero.cta2": "See how it works", "hero.t1": "No app needed", "hero.t2": "iPhone & Android", "hero.t3": "NL · FR · EN",
+    "hero.cta": "Start your team – free", "hero.cta2": "Try the demo", "hero.t1": "No app needed", "hero.t2": "iPhone & Android", "hero.t3": "NL · FR · EN",
     "hero.have": "Already have a team?", "hero.haveLink": "Sign in →",
     "m.tab1": "Availability", "m.tab3": "Team", "m.sat": "sat", "m.away": "Away", "m.ok": "Enough", "m.avail": "available", "m.maybe": "maybe",
     "m.yes": "Yes", "m.maybe2": "Maybe", "m.no": "No", "m.carT": "2 cars · 3 free seats", "m.carS": "Leaving 13:40 at the church",
     "m.calT": "In your calendar", "m.calS": "All matches in one tap",
     "f1a": "11/11 – we're playing!", "f1b": "Everyone has answered", "f2a": "Jonas has 2 seats left", "f2b": "~25 min drive · 18 km",
     "f3a": "Reminder: 2 still to answer 👉",
+    "demo.k": "Try it yourself", "demo.h": "Click around in a real team.", "demo.lead": "No account, no install. Open a demo team, give your answer, arrange a ride or look around as the admin.",
+    "demo.football": "Football", "demo.footballS": "17 players · home and away · carpools", "demo.padelS": "Interclub · 4 players per match",
+    "demo.hockeyS": "Women 1 · 16 players", "demo.golfS": "Interclub · a full day away", "demo.open": "Open demo →",
     "pain.k": "Sound familiar?", "pain.h": "The same hassle every week.",
     "pain.lead": "Fifty messages to find out who's playing, who's driving and whether you have enough people. There's a better way.",
     "pain.tag": "Chaos", "pain.members": "Tom, Lisa, Sam, Jan, Ahmed, you…", "c1": "Who can make it Saturday?", "c2": "maybe me, depends on work",
@@ -639,17 +678,20 @@ const TXT = {
     "doc.title": "RostiQ – Your team sorted, no app needed",
   },
   fr: {
-    "nav.how": "Comment ça marche", "nav.features": "Fonctions", "nav.price": "Prix", "nav.faq": "FAQ", "nav.signin": "Se connecter", "nav.start": "Commencer",
+    "nav.demo": "Démo", "nav.how": "Comment ça marche", "nav.features": "Fonctions", "nav.price": "Prix", "nav.faq": "FAQ", "nav.signin": "Se connecter", "nav.start": "Commencer",
     "hero.badge": "Nouveau", "hero.eyebrow": "Gratuit pendant le pilote · Made in Belgium",
     "hero.h1a": "Arrête de compter dans le", "hero.h1b": "groupe WhatsApp.",
     "hero.lead": "RostiQ réunit disponibilités, covoiturages et rappels sur un seul lien à partager dans ton groupe. Chacun répond en un clic – personne n'a rien à installer.",
-    "hero.cta": "Crée ton équipe – gratuit", "hero.cta2": "Voir comment ça marche", "hero.t1": "Pas d'app à installer", "hero.t2": "iPhone & Android", "hero.t3": "NL · FR · EN",
+    "hero.cta": "Crée ton équipe – gratuit", "hero.cta2": "Essayer la démo", "hero.t1": "Pas d'app à installer", "hero.t2": "iPhone & Android", "hero.t3": "NL · FR · EN",
     "hero.have": "Déjà une équipe ?", "hero.haveLink": "Se connecter →",
     "m.tab1": "Disponibilités", "m.tab3": "Équipe", "m.sat": "sam", "m.away": "Extérieur", "m.ok": "Assez", "m.avail": "disponibles", "m.maybe": "peut-être",
     "m.yes": "Oui", "m.maybe2": "Peut-être", "m.no": "Non", "m.carT": "2 voitures · 3 places libres", "m.carS": "Départ 13:40 à l'église",
     "m.calT": "Dans ton agenda", "m.calS": "Tous les matchs en un clic",
     "f1a": "11/11 – on joue !", "f1b": "Tout le monde a répondu", "f2a": "Jonas a encore 2 places", "f2b": "~25 min de route · 18 km",
     "f3a": "Rappel : encore 2 sans réponse 👉",
+    "demo.k": "Essaie toi-même", "demo.h": "Clique dans une vraie équipe.", "demo.lead": "Pas de compte, pas d'installation. Ouvre une équipe démo, donne ta réponse, organise un trajet ou explore en tant qu'administrateur.",
+    "demo.football": "Football", "demo.footballS": "17 joueurs · domicile et extérieur · covoiturage", "demo.padelS": "Interclub · 4 joueurs par match",
+    "demo.hockeyS": "Dames 1 · 16 joueuses", "demo.golfS": "Interclub · une journée entière en déplacement", "demo.open": "Ouvrir la démo →",
     "pain.k": "Ça te parle ?", "pain.h": "Chaque semaine, la même galère.",
     "pain.lead": "Cinquante messages pour savoir qui joue, qui conduit et si vous êtes assez nombreux. Il y a mieux.",
     "pain.tag": "Chaos", "pain.members": "Tom, Lisa, Sam, Jan, Ahmed, toi…", "c1": "Qui est dispo samedi ?", "c2": "moi peut-être, ça dépend du boulot",
@@ -709,7 +751,9 @@ function getLang() {
   return "nl";
 }
 function setLang(lang) {
-  const dict = lang === "nl" ? NL : TXT[lang];
+  // A sport page (rostiq.be/padel/ …) overrides some texts per language (window.SPORT_TXT, set by tools/make_sport_pages.py).
+  const sport = (window.SPORT_TXT || {})[lang] || {};
+  const dict = { ...(lang === "nl" ? NL : TXT[lang]), ...sport };
   document.querySelectorAll("[data-t]").forEach(el => { const v = dict[el.dataset.t] ?? NL[el.dataset.t]; if (v != null) el.innerHTML = v; });
   document.title = dict["doc.title"] || NL["doc.title"];
   document.documentElement.lang = lang;
