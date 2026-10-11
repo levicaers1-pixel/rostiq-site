@@ -89,6 +89,7 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
   .ticks span { display: inline-flex; align-items: center; gap: 7px; }
   .ticks svg.i { color: var(--lime); width: 18px; height: 18px; }
   .have { margin: 18px 0 0; font-size: .95rem; color: rgb(255 255 255 / .7); }
+  .have.pilot { margin-top: 6px; }
   .have a { color: #fff; font-weight: 700; text-decoration-color: var(--cyan); text-underline-offset: 3px; }
   @media (max-width: 920px) { .hero .wrap { grid-template-columns: 1fr; } .hero { padding: 40px 0 72px; } }
 
@@ -259,6 +260,8 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
   .price li svg.i { width: 20px; height: 20px; margin-top: 2px; color: var(--yes); }
   .price.main li svg.i { color: var(--lime); }
   .price .btn { margin-top: auto; align-self: flex-start; }
+  .pilot-note { margin: 14px 0 0 !important; font-size: .9rem; }
+  .pilot-note a { color: var(--cyan); font-weight: 700; }
   .mail-note { font-size: .88rem; color: var(--muted); }
   .mail-note a { color: var(--ink-2); font-weight: 600; }
   .price p { margin: 6px 0 0; }
@@ -337,6 +340,7 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
           <span><span data-ic="check"></span> <span data-t="hero.t3">NL · FR · EN</span></span>
         </div>
         <p class="have"><span data-t="hero.have">Al een ploeg?</span> <a href="https://app.rostiq.be/?pick" data-t="hero.haveLink">Aanmelden →</a></p>
+        <p class="have pilot"><span data-t="hero.pilot">RostiQ is in pilotfase: je start met een gratis pilotcode.</span> <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ" data-t="hero.pilotLink">Vraag er een aan →</a></p>
       </div>
 
       <div class="stage" aria-hidden="true">
@@ -551,6 +555,7 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
             <li><span data-ic="check"></span><span data-t="pr.l5">Installeerbaar als app, ook offline</span></li>
           </ul>
           <a class="btn btn-hot btn-lg" href="https://app.rostiq.be/start.html"><span data-t="pr.cta">Start je ploeg</span> <span data-ic="arrow-right"></span></a>
+          <p class="pilot-note"><span data-t="pr.pilot">Tijdens de pilot start je met een pilotcode.</span> <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ" data-t="pr.pilotLink">Vraag je gratis code aan</a></p>
         </div>
         <div class="price rv">
           <h3 data-t="pr.club">Club</h3>
@@ -576,6 +581,7 @@ if (/[?&](t|pick|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) location.re
         <h2 data-t="faq.h">Vragen? Antwoorden.</h2>
       </div>
       <div class="faq">
+        <details class="rv"><summary data-t="q0">Hoe krijg ik een pilotcode?</summary><p data-t="a0">RostiQ is in pilotfase, dus nieuwe ploegen starten met een gratis pilotcode. Mail naar <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ">levi@caersultancy.com</a> met de naam van je ploeg en je sport, en je krijgt je code meestal binnen de dag.</p></details>
         <details class="rv"><summary data-t="q1">Is RostiQ echt gratis?</summary><p data-t="a1">Ja. Tijdens de pilot is alles gratis, zonder creditcard. Komen er later betalende extra's voor clubs, dan hoor je dat ruim op voorhand.</p></details>
         <details class="rv"><summary data-t="q2">Moeten mijn spelers een app installeren?</summary><p data-t="a2">Nee. Ze openen de link die je in de groep deelt en melden zich één keer aan met Google of een link per e-mail. Wie wil, zet RostiQ op zijn beginscherm.</p></details>
         <details class="rv"><summary data-t="q3">Werkt het op iPhone en Android?</summary><p data-t="a3">Ja, in elke moderne browser: Safari, Chrome, Firefox, Edge. Op gsm, tablet en computer.</p></details>
@@ -624,6 +630,9 @@ const TXT = {
     "hero.lead": "RostiQ puts availability, carpools and reminders on one link you share in your group. Everyone answers with one tap – nobody has to install anything.",
     "hero.cta": "Start your team – free", "hero.cta2": "Try the demo", "hero.t1": "No app needed", "hero.t2": "iPhone & Android", "hero.t3": "NL · FR · EN",
     "hero.have": "Already have a team?", "hero.haveLink": "Sign in →",
+    "hero.pilot": "RostiQ is in its pilot phase: you start with a free pilot code.", "hero.pilotLink": "Request one →",
+    "pr.pilot": "During the pilot you start with a pilot code.", "pr.pilotLink": "Request your free code",
+    "q0": "How do I get a pilot code?", "a0": "RostiQ is in its pilot phase, so new teams start with a free pilot code. Email <a href=\"mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ\">levi@caersultancy.com</a> with your team's name and sport, and you'll usually get your code the same day.",
     "m.tab1": "Availability", "m.tab3": "Team", "m.sat": "sat", "m.away": "Away", "m.ok": "Enough", "m.avail": "available", "m.maybe": "maybe",
     "m.yes": "Yes", "m.maybe2": "Maybe", "m.no": "No", "m.carT": "2 cars · 3 free seats", "m.carS": "Leaving 13:40 at the church",
     "m.calT": "In your calendar", "m.calS": "All matches in one tap",
@@ -684,6 +693,9 @@ const TXT = {
     "hero.lead": "RostiQ réunit disponibilités, covoiturages et rappels sur un seul lien à partager dans ton groupe. Chacun répond en un clic – personne n'a rien à installer.",
     "hero.cta": "Crée ton équipe – gratuit", "hero.cta2": "Essayer la démo", "hero.t1": "Pas d'app à installer", "hero.t2": "iPhone & Android", "hero.t3": "NL · FR · EN",
     "hero.have": "Déjà une équipe ?", "hero.haveLink": "Se connecter →",
+    "hero.pilot": "RostiQ est en phase pilote : tu commences avec un code pilote gratuit.", "hero.pilotLink": "Demande-le →",
+    "pr.pilot": "Pendant le pilote, tu commences avec un code pilote.", "pr.pilotLink": "Demande ton code gratuit",
+    "q0": "Comment obtenir un code pilote ?", "a0": "RostiQ est en phase pilote : les nouvelles équipes commencent avec un code pilote gratuit. Écris à <a href=\"mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ\">levi@caersultancy.com</a> avec le nom de ton équipe et ton sport, et tu reçois ton code en général le jour même.",
     "m.tab1": "Disponibilités", "m.tab3": "Équipe", "m.sat": "sam", "m.away": "Extérieur", "m.ok": "Assez", "m.avail": "disponibles", "m.maybe": "peut-être",
     "m.yes": "Oui", "m.maybe2": "Peut-être", "m.no": "Non", "m.carT": "2 voitures · 3 places libres", "m.carS": "Départ 13:40 à l'église",
     "m.calT": "Dans ton agenda", "m.calS": "Tous les matchs en un clic",
