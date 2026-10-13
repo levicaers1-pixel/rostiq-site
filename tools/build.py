@@ -19,6 +19,12 @@ LOCALE = {"nl": "nl_BE", "fr": "fr_BE", "en": "en_GB"}
 SHOT_ALT = {"nl": "RostiQ: beschikbaarheid, wedstrijden en carpool van een demoploeg",
             "fr": "RostiQ : disponibilités, matchs et covoiturage d'une équipe démo",
             "en": "RostiQ: availability, matches and carpools of a demo team"}
+VIDEO_ALT = {"nl": "Een speler tikt op Ja en de ploeg is compleet",
+             "fr": "Un joueur appuie sur Oui et l'équipe est au complet",
+             "en": "A player taps Yes and the team is complete"}
+PHONE_ALT = {"nl": "RostiQ op je gsm: één tik om te antwoorden",
+             "fr": "RostiQ sur ton téléphone : une touche pour répondre",
+             "en": "RostiQ on your phone: one tap to answer"}
 
 SPORTS = {
     "voetbal": {
@@ -181,8 +187,14 @@ def build_page(template, txt, page, lang, icons):
         s = set_text(s, key, value)
     # The real app as the hero picture: this sport's demo team (the landing page: football), in this language
     shot = sp["demo"] if sp else "football"
-    rep('<img src="/assets/shots/football-nl.webp" width="1600" height="960" alt="RostiQ: de beschikbaarheid van een voetbalploeg"',
-        f'<img src="/assets/shots/{shot}-{lang}.webp" width="1600" height="960" alt="{html.escape(SHOT_ALT[lang])}"')
+    img = '<img src="/assets/shots/football-nl.webp" width="1600" height="960" alt="RostiQ: de beschikbaarheid van een voetbalploeg" fetchpriority="high">'
+    if sp:
+        rep(img, f'<img src="/assets/shots/{shot}-{lang}.webp" width="1600" height="960" alt="{html.escape(SHOT_ALT[lang])}" fetchpriority="high">')
+    else:  # the main pages: a short recording – one tap on "yes" and the team is complete
+        rep(img, f'<video src="/assets/video/hero-{lang}.mp4" poster="/assets/video/hero-{lang}.webp" width="1600" height="960" autoplay muted loop playsinline preload="auto" '
+                 f'aria-label="{html.escape(VIDEO_ALT[lang])}"></video>')
+    rep('<img src="/assets/shots/phone-football-nl.webp" width="560" height="1120" alt="RostiQ op je gsm: één tik om te antwoorden"',
+        f'<img src="/assets/shots/phone-{shot}-{lang}.webp" width="560" height="1120" alt="{html.escape(PHONE_ALT[lang])}"')
 
     nl_desc = re.search(r'<meta name="description" content="([^"]*)"', template).group(1)
     title = texts.get("doc.title") or re.search(r"<title>([^<]*)</title>", template).group(1)
