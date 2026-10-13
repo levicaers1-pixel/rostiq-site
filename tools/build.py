@@ -16,6 +16,9 @@ SITE = "https://rostiq.be"
 APP = "https://app.rostiq.be"
 LANGS = ["nl", "fr", "en"]
 LOCALE = {"nl": "nl_BE", "fr": "fr_BE", "en": "en_GB"}
+SHOT_ALT = {"nl": "RostiQ: beschikbaarheid, wedstrijden en carpool van een demoploeg",
+            "fr": "RostiQ : disponibilités, matchs et covoiturage d'une équipe démo",
+            "en": "RostiQ: availability, matches and carpools of a demo team"}
 
 SPORTS = {
     "voetbal": {
@@ -171,12 +174,15 @@ def build_page(template, txt, page, lang, icons):
     if sp:
         texts.update(sp[lang])
         rep('<a class="btn btn-ghost btn-lg" href="#demo" data-t="hero.cta2">', f'<a class="btn btn-ghost btn-lg" href="{APP}/?demo={sp["demo"]}" data-t="hero.cta2">', 2)
-        rep("<b>KHC Dragons H3</b>", f"<b>{html.escape(sp['team'])}</b>")
-        rep('<div class="m-title">Royal Antwerp HC</div>', f'<div class="m-title">{html.escape(sp["opp"])}</div>', 2)
-        rep("<b>9</b> / 11 ", f"<b>{sp['yes']}</b> / {sp['min']} ", 2)
+        rep('<div class="m-title">Royal Antwerp HC</div>', f'<div class="m-title">{html.escape(sp["opp"])}</div>')
+        rep("<b>9</b> / 11 ", f"<b>{sp['yes']}</b> / {sp['min']} ")
         rep("Heren 3 🏑<small", f"{sp['chat']}<small")
     for key, value in texts.items():
         s = set_text(s, key, value)
+    # The real app as the hero picture: this sport's demo team (the landing page: football), in this language
+    shot = sp["demo"] if sp else "football"
+    rep('<img src="/assets/shots/football-nl.webp" width="1600" height="960" alt="RostiQ: de beschikbaarheid van een voetbalploeg"',
+        f'<img src="/assets/shots/{shot}-{lang}.webp" width="1600" height="960" alt="{html.escape(SHOT_ALT[lang])}"')
 
     nl_desc = re.search(r'<meta name="description" content="([^"]*)"', template).group(1)
     title = texts.get("doc.title") or re.search(r"<title>([^<]*)</title>", template).group(1)
