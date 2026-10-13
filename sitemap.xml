@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://rostiq.be/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://rostiq.be/voetbal/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://rostiq.be/padel/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://rostiq.be/hockey/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://rostiq.be/golf/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://rostiq.be/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/"/></url>
+  <url><loc>https://rostiq.be/fr/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/"/></url>
+  <url><loc>https://rostiq.be/en/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/"/></url>
+  <url><loc>https://rostiq.be/voetbal/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/voetbal/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/football/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/football/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/voetbal/"/></url>
+  <url><loc>https://rostiq.be/fr/football/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/voetbal/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/football/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/football/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/voetbal/"/></url>
+  <url><loc>https://rostiq.be/en/football/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/voetbal/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/football/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/football/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/voetbal/"/></url>
+  <url><loc>https://rostiq.be/padel/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/padel/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/padel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/padel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/padel/"/></url>
+  <url><loc>https://rostiq.be/fr/padel/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/padel/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/padel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/padel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/padel/"/></url>
+  <url><loc>https://rostiq.be/en/padel/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/padel/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/padel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/padel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/padel/"/></url>
+  <url><loc>https://rostiq.be/hockey/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/hockey/"/></url>
+  <url><loc>https://rostiq.be/fr/hockey/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/hockey/"/></url>
+  <url><loc>https://rostiq.be/en/hockey/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/hockey/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/hockey/"/></url>
+  <url><loc>https://rostiq.be/golf/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/golf/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/golf/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/golf/"/></url>
+  <url><loc>https://rostiq.be/fr/golf/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/golf/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/golf/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/golf/"/></url>
+  <url><loc>https://rostiq.be/en/golf/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rostiq.be/golf/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rostiq.be/fr/golf/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rostiq.be/en/golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rostiq.be/golf/"/></url>
   <url><loc>https://app.rostiq.be/privacy.html</loc><changefreq>monthly</changefreq></url>
 </urlset>
