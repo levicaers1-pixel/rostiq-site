@@ -29,9 +29,9 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=optional">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=optional" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=optional"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional"></noscript>
 <script type="application/ld+json">
 [
  {
@@ -131,7 +131,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
 </script>
 <style>
   /* RostiQ website. Calm and light: white, black type, one soft highlight, a real product screenshot. */
-  @font-face { font-family: "Inter fallback"; src: local("Arial"); size-adjust: 107.1%; ascent-override: 90.4%; descent-override: 22.5%; line-gap-override: 0%; }
+  @font-face { font-family: "Noto Sans fallback"; src: local("Arial"); size-adjust: 100%; ascent-override: 106.9%; descent-override: 29.3%; line-gap-override: 0%; }
   :root {
     --ink: #111111; --ink-2: #37352f; --muted: #6f6e69; --line: #e9e9e7; --soft: #f7f6f3; --white: #fff;
     --accent: #2f2a8f; --accent-2: #4338ca; --blue-soft: #eef0ff;
@@ -139,7 +139,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
     --peach: #ffe3cc; --sky: #d7ecff; --lilac: #e9defc; --lemon: #fff1b8; --rose: #ffdcdc; --sage: #dff0e2;
     --yes: #2f7a4a; --yes-bg: #e1ecdc; --maybe: #9c7424; --maybe-bg: #f5e8cb; --no: #ad4a31; --no-bg: #f5ddd4;
     --wa: #25d366; --radius: 14px; --ease: cubic-bezier(.2, .7, .2, 1);
-    --font: Inter, "Inter fallback", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font: "Noto Sans", "Noto Sans fallback", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -186,9 +186,10 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   .crew svg.i { width: 22px; height: 22px; stroke-width: 2.2; }
   .eyebrow { margin: 0 0 14px; font-size: .85rem; font-weight: 600; color: var(--muted); }
   .hero h1 { font-size: clamp(2.4rem, 6.4vw, 4.4rem); line-height: 1.05; letter-spacing: -.035em; font-weight: 800; margin: 0 auto 18px; max-width: 13em; }
-  .hl { display: inline-flex; align-items: center; gap: .18em; padding: .02em .32em .06em .26em; border-radius: .38em; background: var(--mint); color: var(--mint-ink);
+  /* The highlight is one rounded block: on a narrow screen it moves to its own line as a whole */
+  .hl { display: inline-block; max-width: 100%; padding: .02em .3em .08em .24em; border-radius: .38em; background: var(--mint); color: var(--mint-ink);
     font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
-  .hl::before { content: ""; width: .26em; height: .26em; border-radius: 50%; background: var(--mint-dot); flex-shrink: 0; }
+  .hl::before { content: ""; display: inline-block; width: .26em; height: .26em; margin-right: .18em; border-radius: 50%; background: var(--mint-dot); vertical-align: .18em; }
   .hero .lead { font-size: clamp(1.02rem, 1.8vw, 1.15rem); color: var(--ink-2); max-width: 36em; margin: 0 auto 26px; }
   .hero .ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
   .ticks { display: flex; gap: 6px 18px; justify-content: center; flex-wrap: wrap; margin-top: 18px; font-size: .85rem; color: var(--muted); }
@@ -197,7 +198,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   .have { margin: 10px 0 0; font-size: .85rem; color: var(--muted); }
   .have a { color: var(--accent); font-weight: 600; text-decoration: none; }
   .have a:hover { text-decoration: underline; }
-  @media (max-width: 560px) { .hl { white-space: normal; } .hero { padding-top: 40px; } }
+  @media (max-width: 560px) { .hl { white-space: normal; } .hero { padding-top: 40px; } .hero h1 { font-size: clamp(1.9rem, 8.6vw, 2.4rem); letter-spacing: -.03em; } }
 
   /* The product itself, with a few doodles around it */
   .shot { position: relative; max-width: 980px; margin: 52px auto 0; padding: 0 10px; }
