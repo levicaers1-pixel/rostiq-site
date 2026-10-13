@@ -148,7 +148,16 @@ def load_txt(template):
     return json.loads(res.stdout)
 
 
-def build_page(template, txt, page, lang):
+def load_icons():
+    """name -> inline SVG, from icons.js (the same line icons the app uses)."""
+    code = open(os.path.join(ROOT, "icons.js"), encoding="utf-8").read()
+    i = code.index("const ICONS"); j = code.index("// Emoji in the interface")
+    res = subprocess.run(["node", "-e", code[i:j] + "\nprocess.stdout.write(JSON.stringify(Object.fromEntries(Object.keys(ICONS).map(k => [k, ic(k)]))));"],
+                         capture_output=True, text=True, encoding="utf-8", check=True)
+    return json.loads(res.stdout)
+
+
+def build_page(template, txt, page, lang, icons):
     s = template
     sp = SPORTS.get(page)
 
@@ -216,6 +225,9 @@ def build_page(template, txt, page, lang):
     ld = json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/")
     rep("<!--JSONLD-->", f'<script type="application/ld+json">\n{ld}\n</script>')
 
+    # Icons straight in the HTML: nothing shifts when the page's script runs
+    s = re.sub(r'(data-ic="([a-z-]+)"[^>]*>)(</span>|</div>)', lambda m: m.group(1) + icons[m.group(2)] + m.group(3), s)
+
     # The translations were only needed here
     i = s.index('<script id="txt-src">'); j = s.index("</script>", i) + len("</script>\n")
     s = s[:i] + s[j:]
@@ -225,13 +237,14 @@ def build_page(template, txt, page, lang):
 def main():
     template = open(os.path.join(ROOT, "src", "template.html"), encoding="utf-8").read()
     txt = load_txt(template)
+    icons = load_icons()
     pages = ["home"] + list(SPORTS)
     for page in pages:
         for lang in LANGS:
             out = os.path.join(ROOT, path_of(page, lang).strip("/"), "index.html")
             os.makedirs(os.path.dirname(out), exist_ok=True)
             with open(out, "w", encoding="utf-8", newline="\n") as f:
-                f.write(build_page(template, txt, page, lang))
+                f.write(build_page(template, txt, page, lang, icons))
             print("wrote", path_of(page, lang))
     # Sitemap with the language alternates of every page
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',

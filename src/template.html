@@ -775,7 +775,7 @@ document.querySelectorAll(".lang a").forEach(a => a.addEventListener("click", ()
   if (want === here || navigator.webdriver || /bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit|whatsapp/i.test(navigator.userAgent)) return;
   if (saved || here === "nl") { const a = document.querySelector(`.lang a[data-lang="${want}"]`); if (a) location.replace(a.href); }
 })();
-document.querySelectorAll("[data-ic]").forEach(el => { el.innerHTML = ic(el.dataset.ic); });
+document.querySelectorAll("[data-ic]:empty").forEach(el => { el.innerHTML = ic(el.dataset.ic); }); // normally already in the HTML (tools/build.py)
 
 // Reveal sections as they scroll into view.
 if ("IntersectionObserver" in window) {
