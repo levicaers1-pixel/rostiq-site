@@ -21,3 +21,8 @@ Each page gets its title and description, `hreflang` alternates, Open Graph tags
 (SoftwareApplication, plus FAQPage on the landing pages), and `sitemap.xml` lists every page with its alternates.
 The language switch links between the versions; a first-time visitor of a Dutch page whose browser prefers
 French or English is sent to that version (search engines are not).
+
+## Screenshots
+
+The app pictures in `assets/shots/` come from the live demo teams: `node tools/shots.mjs` (needs `npm install` once in
+the app repo's `tests/` folder, and Edge or Chrome), then `python tools/build.py`. Redo them after a visible change to the app.

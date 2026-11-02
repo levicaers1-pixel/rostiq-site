@@ -29,9 +29,9 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional"></noscript>
 <script type="application/ld+json">
 [
  {
@@ -322,6 +322,74 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   .noscript .rv { opacity: 1; transform: none; }
 </style>
 <style>
+  /* The app's look (Nov 2026): navy and cyan, Anton headings, a navy hero and closing call. */
+  :root { --accent: #1e1b4b; --accent-2: #2a2668; --cyan: #00d4ff; --blue-soft: #ecebfa; --navy-text: #d6d4f0; }
+  h1, h2, .price .amount, .band b { font-family: Anton, var(--font); font-weight: 400; text-transform: uppercase; letter-spacing: .01em; }
+  h2 { line-height: 1.04; }
+  .kicker { color: #5b4fd6; font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+  .btn { border-radius: 12px; font-weight: 800; }
+  .btn-hot { background: var(--cyan); color: var(--accent); }
+  .btn-hot:hover { background: #33ddff; }
+  .btn-dark { background: var(--accent); color: #fff; }
+  .btn-dark:hover { background: var(--accent-2); }
+  .btn-line { background: none; color: var(--accent); border: 1.5px solid var(--accent); }
+  .btn-line:hover { background: var(--blue-soft); }
+  .nav .btn-hot { background: var(--accent); color: #fff; }
+  .hero { background: radial-gradient(1200px 520px at 50% -10%, #3a3590 0%, transparent 60%), var(--accent); color: #fff; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1; letter-spacing: .005em; max-width: 12em; }
+  .hl { background: none; color: var(--cyan); padding: 0; font-weight: 400; letter-spacing: .005em; }
+  .hl::before { display: none; }
+  .eyebrow { color: var(--cyan); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: .78rem; }
+  .hero .lead { color: var(--navy-text); }
+  .hero .btn-ghost { background: rgb(255 255 255 / .1); color: #fff; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .28); }
+  .hero .btn-ghost:hover { background: rgb(255 255 255 / .16); }
+  .ticks, .have { color: #b9b6e0; }
+  .ticks svg.i { color: var(--cyan); }
+  .have a { color: var(--cyan); }
+  .crew span, .doodle { border-color: #fff; box-shadow: none; }
+  .squiggle { color: rgb(255 255 255 / .7); }
+  .frame { border-color: rgb(255 255 255 / .12); box-shadow: 0 40px 90px -40px rgb(0 0 0 / .7); }
+  .hero .strip { border-top-color: rgb(255 255 255 / .12); color: #e6e5fa; }
+  .band b { font-size: clamp(2.2rem, 4.8vw, 3.2rem); color: var(--accent); }
+  .feat .ic, .step::before { border-color: var(--accent); }
+  .feat .new { font-size: .6rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; background: var(--cyan); color: var(--accent);
+    border-radius: 999px; padding: 2px 7px; margin-left: 6px; vertical-align: .2em; }
+  /* Clubs */
+  .club-band { background: var(--accent); color: #fff; border-radius: 30px; padding: 48px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+  .club-band .kicker { color: var(--cyan); }
+  .club-band .sec-lead { color: #c9c7e8; margin: 0 0 18px; }
+  .club-band ul { list-style: none; padding: 0; margin: 0 0 26px; display: grid; gap: 10px; color: #e6e5fa; }
+  .club-band li { display: flex; gap: 10px; }
+  .club-band li::before { content: "✓"; color: var(--cyan); font-weight: 900; }
+  .club-card { background: #fff; color: var(--ink); border-radius: 22px; padding: 18px; display: grid; gap: 6px; box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6); }
+  .club-card .cn { font-family: Anton, var(--font); font-size: 1.5rem; text-transform: uppercase; }
+  .club-card .clash { background: var(--no-bg); color: var(--no); font-weight: 700; font-size: .84rem; border-radius: 12px; padding: 9px 11px; margin: 4px 0; }
+  .club-card .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .9rem; padding: 9px 2px; border-top: 1px solid var(--line); }
+  .club-card .row:first-of-type { border-top: 0; }
+  .club-card .pill { font-size: .72rem; }
+  .pill.mid { background: var(--maybe-bg); color: var(--maybe); } .pill.bad { background: var(--no-bg); color: var(--no); }
+  @media (max-width: 900px) { .club-band { grid-template-columns: 1fr; padding: 30px 22px; } }
+  /* Prices: Free, Pro, Club */
+  .prices { grid-template-columns: repeat(3, 1fr); }
+  .price.main { border: 2px solid var(--accent); box-shadow: 6px 6px 0 var(--accent); position: relative; }
+  .price .tag { position: absolute; top: -13px; left: 24px; background: var(--accent); color: #fff; font-size: .7rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; }
+  .price .amount { font-size: 2.8rem; color: var(--accent); }
+  .price .amount small { font-family: var(--font); text-transform: none; }
+  .price .btn { align-self: stretch; }
+  .pilot-line { text-align: center; margin: 22px auto 0; color: var(--ink-2); max-width: 40em; }
+  .pilot-line b { color: var(--accent); }
+  @media (max-width: 900px) { .prices { grid-template-columns: 1fr; } }
+  /* Phones: the phone picture instead of the (too small) laptop one */
+  @media (max-width: 640px) {
+    .shot .frame { display: none; }
+    .shot .phone { display: block; position: relative; right: auto; bottom: auto; margin: 0 auto; width: min(250px, 72vw); transform: none; }
+  }
+  /* Closing call on navy */
+  .final { background: var(--accent); color: #fff; }
+  .final p { color: var(--navy-text); }
+  .final .btn-ghost { background: rgb(255 255 255 / .1); color: #fff; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .28); }
+</style>
+<style>
   .consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 80; max-width: 560px; margin: 0 auto; padding: 16px 18px;
     display: grid; gap: 12px; border-radius: 18px; background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 50px -12px rgb(17 17 17 / .35); font-size: .9rem; }
   .consent[hidden] { display: none; }
@@ -339,7 +407,8 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
       <a href="#demo" data-t="nav.demo">Demo</a>
       <a href="#how" data-t="nav.how">How it works</a>
       <a href="#features" data-t="nav.features">Features</a>
-      <a href="#price" data-t="nav.price">Price</a>
+      <a href="#clubs" data-t="nav.clubs">For clubs</a>
+      <a href="#price" data-t="nav.price">Pricing</a>
       <a href="#faq" data-t="nav.faq">FAQ</a>
     </nav>
     <div class="right">
@@ -359,7 +428,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
       <div class="crew" aria-hidden="true">
         <span style="--c:var(--peach);--r:-6deg" data-ic="users"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span style="--c:var(--sky);--r:4deg" data-ic="calendar-check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></span><span style="--c:var(--lemon);--r:-3deg" data-ic="car"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></span><span style="--c:var(--mint);--r:5deg" data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span style="--c:var(--lilac);--r:-5deg" data-ic="message"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><span style="--c:var(--rose);--r:3deg" data-ic="trophy"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><span style="--c:var(--sage);--r:-4deg" data-ic="bell"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
       </div>
-      <p class="eyebrow" data-t="hero.eyebrow">For padel teams · Free during the pilot</p>
+      <p class="eyebrow" data-t="hero.eyebrow">For padel teams · Free for every team</p>
       <h1><span data-t="hero.h1a">Who's playing</span> <span class="hl" data-t="hero.h1b">this interclub?</span></h1>
       <p class="lead" data-t="hero.lead">Plan your padel team without the hassle: availability per match day, who rides with whom and who's still missing, on one link in your WhatsApp group.</p>
       <div class="ctas">
@@ -371,8 +440,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
         <span><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span> <span data-t="hero.t2">iPhone & Android</span></span>
         <span><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span> <span data-t="hero.t3">NL · FR · EN</span></span>
       </div>
-      <p class="have"><span data-t="hero.have">Already have a team?</span> <a href="https://app.rostiq.be/?pick" data-t="hero.haveLink">Sign in →</a>
-        · <span data-t="hero.pilot">RostiQ is in its pilot phase: you start with a free pilot code.</span> <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ" data-t="hero.pilotLink">Request one →</a></p>
+      <p class="have"><span data-t="hero.have">Already have a team?</span> <a href="https://app.rostiq.be/?pick" data-t="hero.haveLink">Sign in →</a></p>
 
       <div class="shot">
         <svg class="squiggle s1" viewBox="0 0 64 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 20c8-14 14-14 18 0s10 14 16 0 12-12 26-6"/></svg>
@@ -442,7 +510,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
       <div class="rv"><b>0</b><span data-t="b1">apps to install</span></div>
       <div class="rv"><b>1</b><span data-t="b2">tap per match</span></div>
       <div class="rv"><b>3</b><span data-t="b3">languages: NL · FR · EN</span></div>
-      <div class="rv"><b>€0</b><span data-t="b4">during the pilot</span></div>
+      <div class="rv"><b>€0</b><span data-t="b4">for players, always</span></div>
     </div>
   </div>
 
@@ -486,11 +554,11 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
           </div>
         </div>
         <div class="feat rv"><div class="ic g1" data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h3 data-t="f.tap.h">Answer with one tap</h3><p data-t="f.tap.p">Yes, maybe or no per match. The total turns green as soon as you have enough players.</p></div>
-        <div class="feat rv"><div class="ic g3" data-ic="message"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div><h3 data-t="f.wa.h">Made for WhatsApp</h3><p data-t="f.wa.p">Reminders, match info and the carpool plan are ready to paste in your group. Or message someone directly.</p></div>
+        <div class="feat rv"><div class="ic g3" data-ic="bell"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div><h3 data-t="f.wa.h">Reminders that work</h3><p data-t="f.wa.p">A notification 3 days and 1 day before the match, with the answer buttons in it. And everything is ready to paste into your WhatsApp group.</p></div>
         <div class="feat rv"><div class="ic g5" data-ic="calendar-plus"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M12 14v5M9.5 16.5h5"/></svg></div><h3 data-t="f.cal.h">Straight into your calendar</h3><p data-t="f.cal.p">All matches with time and address in your own calendar, on iPhone, Android or Outlook.</p></div>
         <div class="feat rv"><div class="ic g4" data-ic="download"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg></div><h3 data-t="f.app.h">No app, yet an app</h3><p data-t="f.app.p">Works through a link. Want it as an app on your home screen? You can, and it even works offline.</p></div>
-        <div class="feat rv"><div class="ic g6" data-ic="image"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg></div><h3 data-t="f.brand.h">In your club colours</h3><p data-t="f.brand.p">Your own logo, colours and font. Your players see your team, not us.</p></div>
-        <div class="feat rv"><div class="ic g8" data-ic="trophy"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><h3 data-t="f.stats.h">Who always shows up?</h3><p data-t="f.stats.p">Per player you see how often they were available, drove or rode along. Handy for team selection, and for fair carpools.</p></div>
+        <div class="feat rv"><div class="ic g6" data-ic="users"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 data-t="f.brand.h">Selections and reserves</h3><p data-t="f.brand.p">Pick the team per match. If someone drops out, the first reserve steps in by themselves and gets a notification right away.</p></div>
+        <div class="feat rv"><div class="ic g8" data-ic="trophy"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><h3><span data-t="f.stats.h">Golf ranking with RostiQ Points</span><span class="new" data-t="f.new">New</span></h3><p data-t="f.stats.p">Stableford, net or gross: enter the result and the whole season's standings are there at once, with a podium.</p></div>
         <div class="feat rv"><div class="ic g7" data-ic="shield"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div><h3 data-t="f.priv.h">Privacy without small print</h3><p data-t="f.priv.p">Data in the EU, no ads, no tracking in the app. Only your team sees your details, and you erase everything with one button.</p></div>
       </div>
     </div>
@@ -554,42 +622,83 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
     </div>
   </section>
 
+  <!-- CLUBS -->
+  <section id="clubs">
+    <div class="wrap">
+      <div class="club-band rv">
+        <div>
+          <span class="kicker"><span data-t="cl.k">For clubs</span> <span class="new" style="background:var(--cyan);color:var(--accent);border-radius:999px;padding:1px 7px;font-size:.62rem" data-t="f.new">New</span></span>
+          <h2 data-t="cl.h">All your club's teams. One overview.</h2>
+          <p class="sec-lead" data-t="cl.lead">For the secretary and the treasurer: not ten WhatsApp groups, but one club page.</p>
+          <ul>
+            <li data-t="cl.l1">Every match of every team in one calendar, clashes in red</li>
+            <li data-t="cl.l2">One announcement to the whole club, and everyone gets one notification</li>
+            <li data-t="cl.l3">Per team: how many players are active, and who never answers</li>
+            <li data-t="cl.l4">Numbers only, no names: your players' privacy stays safe</li>
+          </ul>
+          <a class="btn btn-hot btn-lg" href="mailto:levi@caersultancy.com?subject=RostiQ%20voor%20onze%20club" data-t="cl.cta">Talk to us</a>
+        </div>
+        <div class="club-card" aria-hidden="true" data-no-icons>
+          <span class="cn">KHC Proef</span>
+          <div class="clash" data-t="cl.clash">⚠️ Sun 9 Nov · Men 1 and Women 1 both at home at 14:30</div>
+          <div class="row"><span>🏑 Heren 1</span><span class="pill yes"><span>18 / 19</span>&nbsp;<span data-t="cl.active">active</span></span></div>
+          <div class="row"><span>🏑 Dames 1</span><span class="pill yes"><span>17 / 18</span>&nbsp;<span data-t="cl.active">active</span></span></div>
+          <div class="row"><span>🏑 Heren 2</span><span class="pill mid"><span>12 / 20</span>&nbsp;<span data-t="cl.active">active</span></span></div>
+          <div class="row"><span>🏑 <span data-t="cl.vets">Veterans</span></span><span class="pill bad"><span>8 / 17</span>&nbsp;<span data-t="cl.active">active</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICE -->
   <section class="price-sec" id="price">
     <div class="wrap">
       <div class="center rv">
-        <span class="kicker" data-t="pr.k">Price</span>
-        <h2 data-t="pr.h">Free. Really.</h2>
-        <p class="sec-lead" data-t="pr.lead">During the pilot you pay nothing, for everything. No credit card, no trial that runs out.</p>
+        <span class="kicker" data-t="pr.k">Pricing</span>
+        <h2 data-t="pr.h">Free for your whole team.</h2>
+        <p class="sec-lead" data-t="pr.lead">Players never pay and never see ads. Teams that want more pay a small amount per season.</p>
       </div>
       <div class="prices">
-        <div class="price main rv">
-          <h3 data-t="pr.team">Team</h3>
-          <div class="amount">€0 <small data-t="pr.per">during the pilot</small></div>
-          <p data-t="pr.teamP">Everything RostiQ can do, for your whole team.</p>
+        <div class="price rv">
+          <h3>Free</h3>
+          <div class="amount">€0 <small data-t="pr.freePer">always</small></div>
+          <p data-t="pr.freeP">Everything to plan a season.</p>
           <ul>
-            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.l1">Unlimited players and matches</span></li>
-            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.l2">Availability, carpools and calendar</span></li>
-            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.l3">WhatsApp reminders and overviews</span></li>
-            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.l4">Your own logo and club colours</span></li>
-            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.l5">Installable as an app, also offline</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.f1">Answers, calendar and carpools</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.f2">Notifications and automatic reminders</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.f3">Weather warnings and calendar link</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.f4">Unlimited players, 2 admins</span></li>
           </ul>
-          <a class="btn btn-hot btn-lg" href="https://app.rostiq.be/start.html"><span data-t="pr.cta">Start your team</span> <span data-ic="arrow-right"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
-          <p class="pilot-note"><span data-t="pr.pilot">During the pilot you start with a pilot code.</span> <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ" data-t="pr.pilotLink">Request your free code</a></p>
+          <a class="btn btn-line btn-lg" href="https://app.rostiq.be/start.html" data-t="pr.freeCta">Start free</a>
+        </div>
+        <div class="price main rv">
+          <span class="tag" data-t="pr.pop">Most popular</span>
+          <h3>Pro</h3>
+          <div class="amount">€39 <small data-t="pr.proPer">per team, per season</small></div>
+          <p data-t="pr.proP">For the captain who wants the team to run itself.</p>
+          <ul>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.p1">Everything in Free</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.p2">Selections, reserves step in by themselves</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.p3">Golf ranking with RostiQ Points</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.p4">Announcements and invitations by email</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.p5">Own logo and colours, export and backup</span></li>
+          </ul>
+          <a class="btn btn-dark btn-lg" href="https://app.rostiq.be/start.html" data-t="pr.proCta">Try Pro free for 30 days</a>
         </div>
         <div class="price rv">
-          <h3 data-t="pr.club">Club</h3>
-          <div class="amount" style="font-size:2.2rem" data-t="pr.clubA">Tailored</div>
-          <p data-t="pr.clubP">Several teams under one roof, with one club style. Talk to us and we'll set it up together.</p>
+          <h3>Club</h3>
+          <div class="amount">€6 <small data-t="pr.clubPer">per active player, per season</small></div>
+          <p data-t="pr.clubP">Pro for every team in your club, one invoice.</p>
           <ul>
-            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.c1">All your club's teams</span></li>
-            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.c2">One house style for everyone</span></li>
-            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.c3">Personal help getting started</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.c1">Pro for all the club's teams</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.c2">Club page, club calendar and club announcements</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.c3">Only active players count, min. €99, max. €1,500</span></li>
+            <li><span data-ic="check"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span data-t="pr.c4">One invoice per season</span></li>
           </ul>
-          <a class="btn btn-dark" href="mailto:levi@caersultancy.com?subject=RostiQ%20voor%20onze%20club" data-t="pr.clubCta">Get in touch</a>
-          <p class="mail-note"><a href="mailto:levi@caersultancy.com">levi@caersultancy.com</a></p>
+          <a class="btn btn-line btn-lg" href="mailto:levi@caersultancy.com?subject=RostiQ%20voor%20onze%20club" data-t="pr.clubCta">Talk to us</a>
         </div>
       </div>
+      <p class="pilot-line rv"><span data-t="pr.pilot">Pilot team?</span> <b data-t="pr.pilotB">You keep Pro free until the end of the 2026-27 season, then 50% off.</b></p>
     </div>
   </section>
 
@@ -601,13 +710,13 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
         <h2 data-t="faq.h">Questions? Answers.</h2>
       </div>
       <div class="faq">
-        <details class="rv"><summary data-t="q0">How do I get a pilot code?</summary><p data-t="a0">RostiQ is in its pilot phase, so new teams start with a free pilot code. Email <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ">levi@caersultancy.com</a> with your team's name and sport, and you'll usually get your code the same day.</p></details>
-        <details class="rv"><summary data-t="q1">Is RostiQ really free?</summary><p data-t="a1">Yes. During the pilot everything is free, no credit card. If paid extras for clubs come later, you'll hear well in advance.</p></details>
+        <details class="rv"><summary data-t="q0">What does RostiQ cost?</summary><p data-t="a0">Free is free, forever: a team plans a whole season with it. Pro costs €39 per team per season (selections, golf ranking, emails, own logo), and you try it free for 30 days first. Clubs pay €6 per active player per season for all their teams. Players never pay.</p></details>
+        <details class="rv"><summary data-t="q1">Do I need a card to start?</summary><p data-t="a1">No. Starting and the Pro trial are free, without a card. If you want to keep Pro after the trial, you pay per season by Bancontact, card or bank transfer.</p></details>
         <details class="rv"><summary data-t="q2">Do my players have to install an app?</summary><p data-t="a2">No. They open the link you share in the group and sign in once with Google or a link by email. Whoever wants can put RostiQ on their home screen.</p></details>
         <details class="rv"><summary data-t="q3">Does it work on iPhone and Android?</summary><p data-t="a3">Yes, in every modern browser: Safari, Chrome, Firefox, Edge. On phone, tablet and computer.</p></details>
         <details class="rv"><summary data-t="q4">Who sees our data?</summary><p data-t="a4">Only the members of your team. The data is stored in the EU (Belgium), we show no ads and sell nothing on. Your mobile number isn't shown anywhere on the site. More in our <a href="https://app.rostiq.be/privacy.html">privacy statement</a>.</p></details>
         <details class="rv"><summary data-t="q5">What if someone doesn't use WhatsApp?</summary><p data-t="a5">No problem: RostiQ works entirely through the link. WhatsApp is just handy for sharing messages.</p></details>
-        <details class="rv"><summary data-t="q6">Can RostiQ use our club colours?</summary><p data-t="a6">Yes. As an admin you choose your own logo, colours and font. Your players see your house style right away.</p></details>
+        <details class="rv"><summary data-t="q6">Can RostiQ use our club colours?</summary><p data-t="a6">Yes. Everyone picks from ready-made colour sets. With Pro you add your own logo and club colours, and your players see your look straight away.</p></details>
         <details class="rv"><summary data-t="q7">How fast can I start?</summary><p data-t="a7">Your team is online within a minute. Add matches, share the link, and the first answers come in.</p></details>
       </div>
     </div>
@@ -617,7 +726,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   <section class="final">
     <div class="wrap rv">
       <h2 data-t="end.h">Ready for Saturday?</h2>
-      <p data-t="end.p">Put your team on RostiQ today. Free, in a minute, without anyone having to install anything.</p>
+      <p data-t="end.p">Put your team on RostiQ today. Free, in a minute, without a card and without anyone installing anything.</p>
       <div class="ctas">
         <a class="btn btn-hot btn-lg" href="https://app.rostiq.be/start.html"><span data-t="hero.cta">Start your team for free</span> <span data-ic="arrow-right"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
         <a class="btn btn-ghost btn-lg" href="https://app.rostiq.be/?demo=padel" data-t="hero.cta2">Open the padel demo</a>

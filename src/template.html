@@ -8,7 +8,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RostiQ | Je ploeg geregeld, zonder app</title>
-<meta name="description" content="RostiQ is de teamplanner voor sportploegen: beschikbaarheid in één tik, carpool met rijtijden en herinneringen in je WhatsApp-groep. Niemand hoeft een app te installeren. Gratis tijdens de pilot.">
+<meta name="description" content="RostiQ is de teamplanner voor sportploegen: beschikbaarheid in één tik, carpool met rijtijden en herinneringen in je WhatsApp-groep. Niemand hoeft een app te installeren. Gratis voor elke ploeg.">
 <meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://rostiq.be/">
 <!--ALTERNATES-->
@@ -26,9 +26,9 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=optional"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional"></noscript>
 <!--JSONLD-->
 <style>
   /* RostiQ website. Calm and light: white, black type, one soft highlight, a real product screenshot. */
@@ -294,6 +294,74 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   .noscript .rv { opacity: 1; transform: none; }
 </style>
 <style>
+  /* The app's look (Nov 2026): navy and cyan, Anton headings, a navy hero and closing call. */
+  :root { --accent: #1e1b4b; --accent-2: #2a2668; --cyan: #00d4ff; --blue-soft: #ecebfa; --navy-text: #d6d4f0; }
+  h1, h2, .price .amount, .band b { font-family: Anton, var(--font); font-weight: 400; text-transform: uppercase; letter-spacing: .01em; }
+  h2 { line-height: 1.04; }
+  .kicker { color: #5b4fd6; font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+  .btn { border-radius: 12px; font-weight: 800; }
+  .btn-hot { background: var(--cyan); color: var(--accent); }
+  .btn-hot:hover { background: #33ddff; }
+  .btn-dark { background: var(--accent); color: #fff; }
+  .btn-dark:hover { background: var(--accent-2); }
+  .btn-line { background: none; color: var(--accent); border: 1.5px solid var(--accent); }
+  .btn-line:hover { background: var(--blue-soft); }
+  .nav .btn-hot { background: var(--accent); color: #fff; }
+  .hero { background: radial-gradient(1200px 520px at 50% -10%, #3a3590 0%, transparent 60%), var(--accent); color: #fff; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1; letter-spacing: .005em; max-width: 12em; }
+  .hl { background: none; color: var(--cyan); padding: 0; font-weight: 400; letter-spacing: .005em; }
+  .hl::before { display: none; }
+  .eyebrow { color: var(--cyan); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: .78rem; }
+  .hero .lead { color: var(--navy-text); }
+  .hero .btn-ghost { background: rgb(255 255 255 / .1); color: #fff; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .28); }
+  .hero .btn-ghost:hover { background: rgb(255 255 255 / .16); }
+  .ticks, .have { color: #b9b6e0; }
+  .ticks svg.i { color: var(--cyan); }
+  .have a { color: var(--cyan); }
+  .crew span, .doodle { border-color: #fff; box-shadow: none; }
+  .squiggle { color: rgb(255 255 255 / .7); }
+  .frame { border-color: rgb(255 255 255 / .12); box-shadow: 0 40px 90px -40px rgb(0 0 0 / .7); }
+  .hero .strip { border-top-color: rgb(255 255 255 / .12); color: #e6e5fa; }
+  .band b { font-size: clamp(2.2rem, 4.8vw, 3.2rem); color: var(--accent); }
+  .feat .ic, .step::before { border-color: var(--accent); }
+  .feat .new { font-size: .6rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; background: var(--cyan); color: var(--accent);
+    border-radius: 999px; padding: 2px 7px; margin-left: 6px; vertical-align: .2em; }
+  /* Clubs */
+  .club-band { background: var(--accent); color: #fff; border-radius: 30px; padding: 48px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+  .club-band .kicker { color: var(--cyan); }
+  .club-band .sec-lead { color: #c9c7e8; margin: 0 0 18px; }
+  .club-band ul { list-style: none; padding: 0; margin: 0 0 26px; display: grid; gap: 10px; color: #e6e5fa; }
+  .club-band li { display: flex; gap: 10px; }
+  .club-band li::before { content: "✓"; color: var(--cyan); font-weight: 900; }
+  .club-card { background: #fff; color: var(--ink); border-radius: 22px; padding: 18px; display: grid; gap: 6px; box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6); }
+  .club-card .cn { font-family: Anton, var(--font); font-size: 1.5rem; text-transform: uppercase; }
+  .club-card .clash { background: var(--no-bg); color: var(--no); font-weight: 700; font-size: .84rem; border-radius: 12px; padding: 9px 11px; margin: 4px 0; }
+  .club-card .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .9rem; padding: 9px 2px; border-top: 1px solid var(--line); }
+  .club-card .row:first-of-type { border-top: 0; }
+  .club-card .pill { font-size: .72rem; }
+  .pill.mid { background: var(--maybe-bg); color: var(--maybe); } .pill.bad { background: var(--no-bg); color: var(--no); }
+  @media (max-width: 900px) { .club-band { grid-template-columns: 1fr; padding: 30px 22px; } }
+  /* Prices: Free, Pro, Club */
+  .prices { grid-template-columns: repeat(3, 1fr); }
+  .price.main { border: 2px solid var(--accent); box-shadow: 6px 6px 0 var(--accent); position: relative; }
+  .price .tag { position: absolute; top: -13px; left: 24px; background: var(--accent); color: #fff; font-size: .7rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; }
+  .price .amount { font-size: 2.8rem; color: var(--accent); }
+  .price .amount small { font-family: var(--font); text-transform: none; }
+  .price .btn { align-self: stretch; }
+  .pilot-line { text-align: center; margin: 22px auto 0; color: var(--ink-2); max-width: 40em; }
+  .pilot-line b { color: var(--accent); }
+  @media (max-width: 900px) { .prices { grid-template-columns: 1fr; } }
+  /* Phones: the phone picture instead of the (too small) laptop one */
+  @media (max-width: 640px) {
+    .shot .frame { display: none; }
+    .shot .phone { display: block; position: relative; right: auto; bottom: auto; margin: 0 auto; width: min(250px, 72vw); transform: none; }
+  }
+  /* Closing call on navy */
+  .final { background: var(--accent); color: #fff; }
+  .final p { color: var(--navy-text); }
+  .final .btn-ghost { background: rgb(255 255 255 / .1); color: #fff; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .28); }
+</style>
+<style>
   .consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 80; max-width: 560px; margin: 0 auto; padding: 16px 18px;
     display: grid; gap: 12px; border-radius: 18px; background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 50px -12px rgb(17 17 17 / .35); font-size: .9rem; }
   .consent[hidden] { display: none; }
@@ -311,7 +379,8 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
       <a href="#demo" data-t="nav.demo">Demo</a>
       <a href="#how" data-t="nav.how">Hoe het werkt</a>
       <a href="#features" data-t="nav.features">Functies</a>
-      <a href="#price" data-t="nav.price">Prijs</a>
+      <a href="#clubs" data-t="nav.clubs">Voor clubs</a>
+      <a href="#price" data-t="nav.price">Prijzen</a>
       <a href="#faq" data-t="nav.faq">FAQ</a>
     </nav>
     <div class="right">
@@ -331,7 +400,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
       <div class="crew" aria-hidden="true">
         <span style="--c:var(--peach);--r:-6deg" data-ic="users"></span><span style="--c:var(--sky);--r:4deg" data-ic="calendar-check"></span><span style="--c:var(--lemon);--r:-3deg" data-ic="car"></span><span style="--c:var(--mint);--r:5deg" data-ic="check"></span><span style="--c:var(--lilac);--r:-5deg" data-ic="message"></span><span style="--c:var(--rose);--r:3deg" data-ic="trophy"></span><span style="--c:var(--sage);--r:-4deg" data-ic="bell"></span>
       </div>
-      <p class="eyebrow" data-t="hero.eyebrow">Gratis tijdens de pilot · Made in Belgium</p>
+      <p class="eyebrow" data-t="hero.eyebrow">Gratis voor elke ploeg · Made in Belgium</p>
       <h1><span data-t="hero.h1a">Stop met tellen in de</span> <span class="hl" data-t="hero.h1b">WhatsApp-groep.</span></h1>
       <p class="lead" data-t="hero.lead">RostiQ zet beschikbaarheid, carpool en herinneringen op één link die je in je groep deelt. Iedereen antwoordt in één tik. Niemand hoeft iets te installeren.</p>
       <div class="ctas">
@@ -343,8 +412,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
         <span><span data-ic="check"></span> <span data-t="hero.t2">iPhone & Android</span></span>
         <span><span data-ic="check"></span> <span data-t="hero.t3">NL · FR · EN</span></span>
       </div>
-      <p class="have"><span data-t="hero.have">Al een ploeg?</span> <a href="https://app.rostiq.be/?pick" data-t="hero.haveLink">Aanmelden →</a>
-        · <span data-t="hero.pilot">RostiQ is in pilotfase: je start met een gratis pilotcode.</span> <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ" data-t="hero.pilotLink">Vraag er een aan →</a></p>
+      <p class="have"><span data-t="hero.have">Al een ploeg?</span> <a href="https://app.rostiq.be/?pick" data-t="hero.haveLink">Aanmelden →</a></p>
 
       <div class="shot">
         <svg class="squiggle s1" viewBox="0 0 64 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 20c8-14 14-14 18 0s10 14 16 0 12-12 26-6"/></svg>
@@ -414,7 +482,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
       <div class="rv"><b>0</b><span data-t="b1">apps om te installeren</span></div>
       <div class="rv"><b>1</b><span data-t="b2">tik per wedstrijd</span></div>
       <div class="rv"><b>3</b><span data-t="b3">talen: NL · FR · EN</span></div>
-      <div class="rv"><b>€0</b><span data-t="b4">tijdens de pilot</span></div>
+      <div class="rv"><b>€0</b><span data-t="b4">voor spelers, altijd</span></div>
     </div>
   </div>
 
@@ -458,11 +526,11 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
           </div>
         </div>
         <div class="feat rv"><div class="ic g1" data-ic="check"></div><h3 data-t="f.tap.h">Antwoorden in één tik</h3><p data-t="f.tap.p">Ja, misschien of nee per wedstrijd. Het totaal kleurt groen zodra je genoeg spelers hebt.</p></div>
-        <div class="feat rv"><div class="ic g3" data-ic="message"></div><h3 data-t="f.wa.h">Gemaakt voor WhatsApp</h3><p data-t="f.wa.p">Herinneringen, wedstrijdinfo en het carpoolplan staan kant-en-klaar om in je groep te plakken. Of stuur iemand rechtstreeks een berichtje.</p></div>
+        <div class="feat rv"><div class="ic g3" data-ic="bell"></div><h3 data-t="f.wa.h">Herinneringen die werken</h3><p data-t="f.wa.p">Een melding 3 dagen en 1 dag voor de wedstrijd, met de antwoordknoppen erin. En alles staat kant-en-klaar om in je WhatsApp-groep te plakken.</p></div>
         <div class="feat rv"><div class="ic g5" data-ic="calendar-plus"></div><h3 data-t="f.cal.h">Meteen in je agenda</h3><p data-t="f.cal.p">Alle wedstrijden met uur en adres in je eigen agenda, op iPhone, Android of Outlook.</p></div>
         <div class="feat rv"><div class="ic g4" data-ic="download"></div><h3 data-t="f.app.h">Geen app, toch een app</h3><p data-t="f.app.p">Werkt gewoon via een link. Wil je het als app op je beginscherm? Kan, en het werkt zelfs offline.</p></div>
-        <div class="feat rv"><div class="ic g6" data-ic="image"></div><h3 data-t="f.brand.h">In jouw clubkleuren</h3><p data-t="f.brand.p">Je eigen logo, kleuren en lettertype. Je spelers zien jullie ploeg, niet ons.</p></div>
-        <div class="feat rv"><div class="ic g8" data-ic="trophy"></div><h3 data-t="f.stats.h">Wie is er altijd bij?</h3><p data-t="f.stats.p">Per speler zie je hoe vaak hij beschikbaar was, reed of meereed. Handig voor de selectie, en voor een eerlijke carpool.</p></div>
+        <div class="feat rv"><div class="ic g6" data-ic="users"></div><h3 data-t="f.brand.h">Selecties en reserves</h3><p data-t="f.brand.p">Stel de ploeg op per wedstrijd. Haakt iemand af, dan valt de eerste reserve vanzelf in en krijgt die meteen een melding.</p></div>
+        <div class="feat rv"><div class="ic g8" data-ic="trophy"></div><h3><span data-t="f.stats.h">Golfranking met RostiQ Points</span><span class="new" data-t="f.new">Nieuw</span></h3><p data-t="f.stats.p">Stableford, netto of bruto: vul de uitslag in en het klassement van het hele seizoen staat er meteen, met podium.</p></div>
         <div class="feat rv"><div class="ic g7" data-ic="shield"></div><h3 data-t="f.priv.h">Privacy zonder kleine lettertjes</h3><p data-t="f.priv.p">Data in de EU, geen reclame, geen tracking in de app. Alleen je ploeg ziet je gegevens, en je wist alles met één knop.</p></div>
       </div>
     </div>
@@ -526,42 +594,83 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
     </div>
   </section>
 
+  <!-- CLUBS -->
+  <section id="clubs">
+    <div class="wrap">
+      <div class="club-band rv">
+        <div>
+          <span class="kicker"><span data-t="cl.k">Voor clubs</span> <span class="new" style="background:var(--cyan);color:var(--accent);border-radius:999px;padding:1px 7px;font-size:.62rem" data-t="f.new">Nieuw</span></span>
+          <h2 data-t="cl.h">Alle ploegen van je club. Eén overzicht.</h2>
+          <p class="sec-lead" data-t="cl.lead">Voor de secretaris en de penningmeester: geen tien WhatsApp-groepen meer, maar één clubpagina.</p>
+          <ul>
+            <li data-t="cl.l1">Alle wedstrijden van alle ploegen in één kalender, botsingen in het rood</li>
+            <li data-t="cl.l2">Eén mededeling naar de hele club, en iedereen krijgt één melding</li>
+            <li data-t="cl.l3">Per ploeg: hoeveel spelers actief zijn, en wie nooit antwoordt</li>
+            <li data-t="cl.l4">Alleen cijfers, geen namen: de privacy van je spelers blijft veilig</li>
+          </ul>
+          <a class="btn btn-hot btn-lg" href="mailto:levi@caersultancy.com?subject=RostiQ%20voor%20onze%20club" data-t="cl.cta">Praat met ons</a>
+        </div>
+        <div class="club-card" aria-hidden="true" data-no-icons>
+          <span class="cn">KHC Proef</span>
+          <div class="clash" data-t="cl.clash">⚠️ Zo 9 nov · Heren 1 en Dames 1 tegelijk thuis om 14:30</div>
+          <div class="row"><span>🏑 Heren 1</span><span class="pill yes"><span>18 / 19</span>&nbsp;<span data-t="cl.active">actief</span></span></div>
+          <div class="row"><span>🏑 Dames 1</span><span class="pill yes"><span>17 / 18</span>&nbsp;<span data-t="cl.active">actief</span></span></div>
+          <div class="row"><span>🏑 Heren 2</span><span class="pill mid"><span>12 / 20</span>&nbsp;<span data-t="cl.active">actief</span></span></div>
+          <div class="row"><span>🏑 <span data-t="cl.vets">Veteranen</span></span><span class="pill bad"><span>8 / 17</span>&nbsp;<span data-t="cl.active">actief</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICE -->
   <section class="price-sec" id="price">
     <div class="wrap">
       <div class="center rv">
-        <span class="kicker" data-t="pr.k">Prijs</span>
-        <h2 data-t="pr.h">Gratis. Echt.</h2>
-        <p class="sec-lead" data-t="pr.lead">Tijdens de pilot betaal je niets, voor alles. Geen creditcard, geen proefperiode die afloopt.</p>
+        <span class="kicker" data-t="pr.k">Prijzen</span>
+        <h2 data-t="pr.h">Gratis voor je hele ploeg.</h2>
+        <p class="sec-lead" data-t="pr.lead">Spelers betalen nooit en zien nooit reclame. Ploegen die meer willen, betalen een klein bedrag per seizoen.</p>
       </div>
       <div class="prices">
-        <div class="price main rv">
-          <h3 data-t="pr.team">Ploeg</h3>
-          <div class="amount">€0 <small data-t="pr.per">tijdens de pilot</small></div>
-          <p data-t="pr.teamP">Alles wat RostiQ kan, voor je hele ploeg.</p>
+        <div class="price rv">
+          <h3>Free</h3>
+          <div class="amount">€0 <small data-t="pr.freePer">altijd</small></div>
+          <p data-t="pr.freeP">Alles om een seizoen te plannen.</p>
           <ul>
-            <li><span data-ic="check"></span><span data-t="pr.l1">Onbeperkt spelers en wedstrijden</span></li>
-            <li><span data-ic="check"></span><span data-t="pr.l2">Beschikbaarheid, carpool en agenda</span></li>
-            <li><span data-ic="check"></span><span data-t="pr.l3">WhatsApp-herinneringen en -overzichten</span></li>
-            <li><span data-ic="check"></span><span data-t="pr.l4">Eigen logo en clubkleuren</span></li>
-            <li><span data-ic="check"></span><span data-t="pr.l5">Installeerbaar als app, ook offline</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.f1">Antwoorden, kalender en carpool</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.f2">Meldingen en automatische herinneringen</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.f3">Weerwaarschuwingen en agendalink</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.f4">Onbeperkt spelers, 2 beheerders</span></li>
           </ul>
-          <a class="btn btn-hot btn-lg" href="https://app.rostiq.be/start.html"><span data-t="pr.cta">Start je ploeg</span> <span data-ic="arrow-right"></span></a>
-          <p class="pilot-note"><span data-t="pr.pilot">Tijdens de pilot start je met een pilotcode.</span> <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ" data-t="pr.pilotLink">Vraag je gratis code aan</a></p>
+          <a class="btn btn-line btn-lg" href="https://app.rostiq.be/start.html" data-t="pr.freeCta">Start gratis</a>
+        </div>
+        <div class="price main rv">
+          <span class="tag" data-t="pr.pop">Meest gekozen</span>
+          <h3>Pro</h3>
+          <div class="amount">€39 <small data-t="pr.proPer">per ploeg, per seizoen</small></div>
+          <p data-t="pr.proP">Voor de kapitein die wil dat de ploeg vanzelf draait.</p>
+          <ul>
+            <li><span data-ic="check"></span><span data-t="pr.p1">Alles van Free</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.p2">Selecties, reserves vallen vanzelf in</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.p3">Golfranking met RostiQ Points</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.p4">Mededelingen en uitnodigingen per e-mail</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.p5">Eigen logo en kleuren, export en back-up</span></li>
+          </ul>
+          <a class="btn btn-dark btn-lg" href="https://app.rostiq.be/start.html" data-t="pr.proCta">Probeer Pro 30 dagen gratis</a>
         </div>
         <div class="price rv">
-          <h3 data-t="pr.club">Club</h3>
-          <div class="amount" style="font-size:2.2rem" data-t="pr.clubA">Op maat</div>
-          <p data-t="pr.clubP">Meerdere ploegen onder één dak, met één clubstijl. Praat met ons en we zetten het samen op.</p>
+          <h3>Club</h3>
+          <div class="amount">€6 <small data-t="pr.clubPer">per actieve speler, per seizoen</small></div>
+          <p data-t="pr.clubP">Pro voor elke ploeg van je club, één factuur.</p>
           <ul>
-            <li><span data-ic="check"></span><span data-t="pr.c1">Alle ploegen van je club</span></li>
-            <li><span data-ic="check"></span><span data-t="pr.c2">Eén huisstijl voor iedereen</span></li>
-            <li><span data-ic="check"></span><span data-t="pr.c3">Persoonlijke hulp bij de start</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.c1">Pro voor alle ploegen van de club</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.c2">Clubpagina, clubkalender en clubmededelingen</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.c3">Alleen actieve spelers tellen, min. €99, max. €1.500</span></li>
+            <li><span data-ic="check"></span><span data-t="pr.c4">Eén factuur per seizoen</span></li>
           </ul>
-          <a class="btn btn-dark" href="mailto:levi@caersultancy.com?subject=RostiQ%20voor%20onze%20club" data-t="pr.clubCta">Neem contact op</a>
-          <p class="mail-note"><a href="mailto:levi@caersultancy.com">levi@caersultancy.com</a></p>
+          <a class="btn btn-line btn-lg" href="mailto:levi@caersultancy.com?subject=RostiQ%20voor%20onze%20club" data-t="pr.clubCta">Praat met ons</a>
         </div>
       </div>
+      <p class="pilot-line rv"><span data-t="pr.pilot">Pilootploeg?</span> <b data-t="pr.pilotB">Je houdt Pro gratis tot eind seizoen 2026-27, daarna 50% korting.</b></p>
     </div>
   </section>
 
@@ -573,13 +682,13 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
         <h2 data-t="faq.h">Vragen? Antwoorden.</h2>
       </div>
       <div class="faq">
-        <details class="rv"><summary data-t="q0">Hoe krijg ik een pilotcode?</summary><p data-t="a0">RostiQ is in pilotfase, dus nieuwe ploegen starten met een gratis pilotcode. Mail naar <a href="mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ">levi@caersultancy.com</a> met de naam van je ploeg en je sport, en je krijgt je code meestal binnen de dag.</p></details>
-        <details class="rv"><summary data-t="q1">Is RostiQ echt gratis?</summary><p data-t="a1">Ja. Tijdens de pilot is alles gratis, zonder creditcard. Komen er later betalende extra's voor clubs, dan hoor je dat ruim op voorhand.</p></details>
+        <details class="rv"><summary data-t="q0">Wat kost RostiQ?</summary><p data-t="a0">Free is gratis, voor altijd: een ploeg plant er een heel seizoen mee. Pro kost €39 per ploeg per seizoen (selecties, golfranking, e-mails, eigen logo), en je probeert het eerst 30 dagen gratis. Clubs betalen €6 per actieve speler per seizoen voor al hun ploegen. Spelers betalen nooit.</p></details>
+        <details class="rv"><summary data-t="q1">Moet ik een kaart ingeven om te starten?</summary><p data-t="a1">Nee. Starten en de proefperiode van Pro zijn gratis, zonder kaart. Wil je na de proef Pro houden, dan betaal je per seizoen met Bancontact, kaart of overschrijving.</p></details>
         <details class="rv"><summary data-t="q2">Moeten mijn spelers een app installeren?</summary><p data-t="a2">Nee. Ze openen de link die je in de groep deelt en melden zich één keer aan met Google of een link per e-mail. Wie wil, zet RostiQ op zijn beginscherm.</p></details>
         <details class="rv"><summary data-t="q3">Werkt het op iPhone en Android?</summary><p data-t="a3">Ja, in elke moderne browser: Safari, Chrome, Firefox, Edge. Op gsm, tablet en computer.</p></details>
         <details class="rv"><summary data-t="q4">Wie ziet onze gegevens?</summary><p data-t="a4">Alleen de leden van je ploeg. De gegevens staan in de EU (België), we tonen geen reclame en verkopen niets door. Je gsm-nummer staat nergens op de site. Meer in onze <a href="https://app.rostiq.be/privacy.html">privacyverklaring</a>.</p></details>
         <details class="rv"><summary data-t="q5">Wat als iemand geen WhatsApp heeft?</summary><p data-t="a5">Geen probleem: RostiQ werkt volledig via de link. WhatsApp is alleen handig om berichten te delen.</p></details>
-        <details class="rv"><summary data-t="q6">Kan ik RostiQ in onze clubkleuren zetten?</summary><p data-t="a6">Ja. Als beheerder kies je je eigen logo, kleuren en lettertype. Je spelers zien meteen jullie huisstijl.</p></details>
+        <details class="rv"><summary data-t="q6">Kan ik RostiQ in onze clubkleuren zetten?</summary><p data-t="a6">Ja. Iedereen kiest uit kant-en-klare kleurensets. Met Pro zet je er je eigen logo en clubkleuren op, en je spelers zien meteen jullie huisstijl.</p></details>
         <details class="rv"><summary data-t="q7">Hoe snel kan ik starten?</summary><p data-t="a7">Binnen een minuut staat je ploeg online. Wedstrijden toevoegen, link delen, en de eerste antwoorden komen binnen.</p></details>
       </div>
     </div>
@@ -589,7 +698,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   <section class="final">
     <div class="wrap rv">
       <h2 data-t="end.h">Klaar voor zaterdag?</h2>
-      <p data-t="end.p">Zet je ploeg vandaag nog op RostiQ. Gratis, in een minuut, zonder dat iemand iets hoeft te installeren.</p>
+      <p data-t="end.p">Zet je ploeg vandaag nog op RostiQ. Gratis, in een minuut, zonder kaart en zonder dat iemand iets hoeft te installeren.</p>
       <div class="ctas">
         <a class="btn btn-hot btn-lg" href="https://app.rostiq.be/start.html"><span data-t="hero.cta">Start je ploeg gratis</span> <span data-ic="arrow-right"></span></a>
         <a class="btn btn-ghost btn-lg" href="#demo" data-t="hero.cta2">Probeer de demo</a>
@@ -622,15 +731,14 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
 // ---- Texts (NL is in the HTML; EN and FR here). The choice is shared with the app (localStorage "lang"). ----
 const TXT = {
   en: {
-    "nav.demo": "Demo", "nav.how": "How it works", "nav.features": "Features", "nav.price": "Price", "nav.faq": "FAQ", "nav.signin": "Sign in", "nav.start": "Start free",
-    "hero.badge": "New", "hero.eyebrow": "Free during the pilot · Made in Belgium",
+    "nav.demo": "Demo", "nav.how": "How it works", "nav.features": "Features", "nav.price": "Pricing", "nav.faq": "FAQ", "nav.signin": "Sign in", "nav.start": "Start free",
+    "hero.badge": "New", "hero.eyebrow": "Free for every team · Made in Belgium",
     "hero.h1a": "Stop counting in the", "hero.h1b": "WhatsApp group.",
     "hero.lead": "RostiQ puts availability, carpools and reminders on one link you share in your group. Everyone answers with one tap. Nobody has to install anything.",
     "hero.cta": "Start your team for free", "hero.cta2": "Try the demo", "hero.t1": "No app needed", "hero.t2": "iPhone & Android", "hero.t3": "NL · FR · EN",
     "hero.have": "Already have a team?", "hero.haveLink": "Sign in →",
-    "hero.pilot": "RostiQ is in its pilot phase: you start with a free pilot code.", "hero.pilotLink": "Request one →",
-    "pr.pilot": "During the pilot you start with a pilot code.", "pr.pilotLink": "Request your free code",
-    "q0": "How do I get a pilot code?", "a0": "RostiQ is in its pilot phase, so new teams start with a free pilot code. Email <a href=\"mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ\">levi@caersultancy.com</a> with your team's name and sport, and you'll usually get your code the same day.",
+    "pr.pilot": "Pilot team?",
+    "q0": "What does RostiQ cost?", "a0": "Free is free, forever: a team plans a whole season with it. Pro costs €39 per team per season (selections, golf ranking, emails, own logo), and you try it free for 30 days first. Clubs pay €6 per active player per season for all their teams. Players never pay.",
     "m.tab1": "Availability", "m.tab3": "Team", "m.sat": "sat", "m.away": "Away", "m.ok": "Enough", "m.avail": "available", "m.maybe": "maybe",
     "m.yes": "Yes", "m.maybe2": "Maybe", "m.no": "No", "m.carT": "2 cars · 3 free seats", "m.carS": "Leaving 13:40 at the church",
     "m.calT": "In your calendar", "m.calS": "All matches in one tap",
@@ -645,17 +753,17 @@ const TXT = {
     "c3": "how many are we now??", "c4": "who's driving? I don't have a car", "c5": "Can someone please count 😩", "pain.calm": "Sorted",
     "fix1": "Everyone answers with one tap: yes, maybe or no.", "fix2": "You see right away if you have enough players: green, orange or red.",
     "fix3": "Whoever hasn't answered gets a reminder in the group.", "fix4": "Carpools sort themselves out: who drives, who rides along.",
-    "b1": "apps to install", "b2": "tap per match", "b3": "languages: NL · FR · EN", "b4": "during the pilot",
+    "b1": "apps to install", "b2": "tap per match", "b3": "languages: NL · FR · EN", "b4": "for players, always",
     "feat.k": "Everything your team needs", "feat.h": "Built for Saturday morning.",
     "feat.lead": "Not another social network. Just the things a captain has to sort out every week. Fast, clear, on your phone.",
     "f.car.h": "Carpools with driving times and CO₂", "f.car.p": "Who drives, how many seats, who lives nearby. RostiQ shows the distance, the driving time and when to leave, and how much CO₂ you save together.",
     "f.car.free": "1 free seat", "f.car.seat": "Free seat",
     "f.tap.h": "Answer with one tap", "f.tap.p": "Yes, maybe or no per match. The total turns green as soon as you have enough players.",
-    "f.wa.h": "Made for WhatsApp", "f.wa.p": "Reminders, match info and the carpool plan are ready to paste in your group. Or message someone directly.",
+    "f.wa.h": "Reminders that work", "f.wa.p": "A notification 3 days and 1 day before the match, with the answer buttons in it. And everything is ready to paste into your WhatsApp group.",
     "f.cal.h": "Straight into your calendar", "f.cal.p": "All matches with time and address in your own calendar, on iPhone, Android or Outlook.",
     "f.app.h": "No app, yet an app", "f.app.p": "Works through a link. Want it as an app on your home screen? You can, and it even works offline.",
-    "f.brand.h": "In your club colours", "f.brand.p": "Your own logo, colours and font. Your players see your team, not us.",
-    "f.stats.h": "Who always shows up?", "f.stats.p": "Per player you see how often they were available, drove or rode along. Handy for team selection, and for fair carpools.",
+    "f.brand.h": "Selections and reserves", "f.brand.p": "Pick the team per match. If someone drops out, the first reserve steps in by themselves and gets a notification right away.",
+    "f.stats.h": "Golf ranking with RostiQ Points", "f.stats.p": "Stableford, net or gross: enter the result and the whole season's standings are there at once, with a podium.",
     "f.priv.h": "Privacy without small print", "f.priv.p": "Data in the EU, no ads, no tracking in the app. Only your team sees your details, and you erase everything with one button.",
     "how.k": "How it works", "how.h": "Ready for the season in 3 steps.",
     "s1.h": "Create your team", "s1.p": "Name, sport, colours. Add your matches in a few clicks.", "s1.t": "± 1 minute",
@@ -666,39 +774,36 @@ const TXT = {
     "cmp.k": "Why RostiQ", "cmp.h": "The best of both worlds.", "cmp.lead": "As simple as a WhatsApp group, as clear as a real team app.",
     "cmp.c1": "WhatsApp list", "cmp.c2": "Classic team app", "cmp.r1": "Nobody has to install an app", "cmp.r2": "Answer with one tap",
     "cmp.r3": "At a glance: enough players?", "cmp.r4": "Carpools with distances and driving times", "cmp.r5": "Reminders right in your WhatsApp group", "cmp.r6": "Dutch, French and English",
-    "pr.k": "Price", "pr.h": "Free. Really.", "pr.lead": "During the pilot you pay nothing, for everything. No credit card, no trial that runs out.",
-    "pr.team": "Team", "pr.per": "during the pilot", "pr.teamP": "Everything RostiQ can do, for your whole team.",
-    "pr.l1": "Unlimited players and matches", "pr.l2": "Availability, carpools and calendar", "pr.l3": "WhatsApp reminders and overviews",
-    "pr.l4": "Your own logo and club colours", "pr.l5": "Installable as an app, also offline", "pr.cta": "Start your team",
-    "pr.club": "Club", "pr.clubA": "Tailored", "pr.clubP": "Several teams under one roof, with one club style. Talk to us and we'll set it up together.",
-    "pr.c1": "All your club's teams", "pr.c2": "One house style for everyone", "pr.c3": "Personal help getting started", "pr.clubCta": "Get in touch",
+    "pr.k": "Pricing", "pr.h": "Free for your whole team.", "pr.lead": "Players never pay and never see ads. Teams that want more pay a small amount per season.",
+    "pr.club": "Club", "pr.clubP": "Pro for every team in your club, one invoice.",
+    "pr.c1": "Pro for all the club's teams", "pr.c2": "Club page, club calendar and club announcements", "pr.c3": "Only active players count, min. €99, max. €1,500", "pr.clubCta": "Talk to us",
     "faq.h": "Questions? Answers.",
-    "q1": "Is RostiQ really free?", "a1": "Yes. During the pilot everything is free, no credit card. If paid extras for clubs come later, you'll hear well in advance.",
+    "q1": "Do I need a card to start?", "a1": "No. Starting and the Pro trial are free, without a card. If you want to keep Pro after the trial, you pay per season by Bancontact, card or bank transfer.",
     "q2": "Do my players have to install an app?", "a2": "No. They open the link you share in the group and sign in once with Google or a link by email. Whoever wants can put RostiQ on their home screen.",
     "q3": "Does it work on iPhone and Android?", "a3": "Yes, in every modern browser: Safari, Chrome, Firefox, Edge. On phone, tablet and computer.",
     "q4": "Who sees our data?", "a4": "Only the members of your team. The data is stored in the EU (Belgium), we show no ads and sell nothing on. Your mobile number isn't shown anywhere on the site. More in our <a href=\"https://app.rostiq.be/privacy.html\">privacy statement</a>.",
     "q5": "What if someone doesn't use WhatsApp?", "a5": "No problem: RostiQ works entirely through the link. WhatsApp is just handy for sharing messages.",
-    "q6": "Can RostiQ use our club colours?", "a6": "Yes. As an admin you choose your own logo, colours and font. Your players see your house style right away.",
+    "q6": "Can RostiQ use our club colours?", "a6": "Yes. Everyone picks from ready-made colour sets. With Pro you add your own logo and club colours, and your players see your look straight away.",
     "q7": "How fast can I start?", "a7": "Your team is online within a minute. Add matches, share the link, and the first answers come in.",
-    "end.h": "Ready for Saturday?", "end.p": "Put your team on RostiQ today. Free, in a minute, without anyone having to install anything.", "end.signin": "I already have a team",
+    "end.h": "Ready for Saturday?", "end.p": "Put your team on RostiQ today. Free, in a minute, without a card and without anyone installing anything.", "end.signin": "I already have a team",
     "ft.privacy": "Privacy", "ft.by": "a project of", "ft.contact": "Contact", "ft.cookies": "Cookies",
     "ck.title": "May we measure?", "ck.text": "We'd like to see how visitors use this website, with Google Analytics. Cookies for that are only set if you agree. The app itself never tracks you.",
     "ck.no": "No thanks", "ck.yes": "Agree",
     "doc.title": "RostiQ | Your team sorted, no app needed",
-    "doc.desc": "RostiQ is the team planner for sports teams: availability in one tap, carpools with driving times and reminders in your WhatsApp group. Nobody has to install an app. Free during the pilot.",
+    "doc.desc": "RostiQ is the team planner for sports teams: availability in one tap, carpools with driving times and reminders in your WhatsApp group. Nobody has to install an app. Free for every team.",
     "og.title": "RostiQ | Stop counting in the WhatsApp group",
     "og.desc": "Availability, carpools and reminders for your sports team on one link. Nobody has to install anything.",
+    "nav.clubs": "For clubs", "f.new": "New", "cl.k": "For clubs", "cl.h": "All your club's teams. One overview.", "cl.lead": "For the secretary and the treasurer: not ten WhatsApp groups, but one club page.", "cl.l1": "Every match of every team in one calendar, clashes in red", "cl.l2": "One announcement to the whole club, and everyone gets one notification", "cl.l3": "Per team: how many players are active, and who never answers", "cl.l4": "Numbers only, no names: your players' privacy stays safe", "cl.cta": "Talk to us", "cl.clash": "⚠️ Sun 9 Nov · Men 1 and Women 1 both at home at 14:30", "cl.active": "active", "cl.vets": "Veterans", "pr.freePer": "always", "pr.freeP": "Everything to plan a season.", "pr.f1": "Answers, calendar and carpools", "pr.f2": "Notifications and automatic reminders", "pr.f3": "Weather warnings and calendar link", "pr.f4": "Unlimited players, 2 admins", "pr.freeCta": "Start free", "pr.pop": "Most popular", "pr.proPer": "per team, per season", "pr.proP": "For the captain who wants the team to run itself.", "pr.p1": "Everything in Free", "pr.p2": "Selections, reserves step in by themselves", "pr.p3": "Golf ranking with RostiQ Points", "pr.p4": "Announcements and invitations by email", "pr.p5": "Own logo and colours, export and backup", "pr.proCta": "Try Pro free for 30 days", "pr.clubPer": "per active player, per season", "pr.c4": "One invoice per season", "pr.pilotB": "You keep Pro free until the end of the 2026-27 season, then 50% off.",
   },
   fr: {
-    "nav.demo": "Démo", "nav.how": "Comment ça marche", "nav.features": "Fonctions", "nav.price": "Prix", "nav.faq": "FAQ", "nav.signin": "Se connecter", "nav.start": "Commencer",
-    "hero.badge": "Nouveau", "hero.eyebrow": "Gratuit pendant le pilote · Made in Belgium",
+    "nav.demo": "Démo", "nav.how": "Comment ça marche", "nav.features": "Fonctions", "nav.price": "Tarifs", "nav.faq": "FAQ", "nav.signin": "Se connecter", "nav.start": "Commencer",
+    "hero.badge": "Nouveau", "hero.eyebrow": "Gratuit pour chaque équipe · Made in Belgium",
     "hero.h1a": "Arrête de compter dans le", "hero.h1b": "groupe WhatsApp.",
     "hero.lead": "RostiQ réunit disponibilités, covoiturages et rappels sur un seul lien à partager dans ton groupe. Chacun répond en un clic. Personne n'a rien à installer.",
     "hero.cta": "Crée ton équipe gratuitement", "hero.cta2": "Essayer la démo", "hero.t1": "Pas d'app à installer", "hero.t2": "iPhone & Android", "hero.t3": "NL · FR · EN",
     "hero.have": "Déjà une équipe ?", "hero.haveLink": "Se connecter →",
-    "hero.pilot": "RostiQ est en phase pilote : tu commences avec un code pilote gratuit.", "hero.pilotLink": "Demande-le →",
-    "pr.pilot": "Pendant le pilote, tu commences avec un code pilote.", "pr.pilotLink": "Demande ton code gratuit",
-    "q0": "Comment obtenir un code pilote ?", "a0": "RostiQ est en phase pilote : les nouvelles équipes commencent avec un code pilote gratuit. Écris à <a href=\"mailto:levi@caersultancy.com?subject=Pilotcode%20RostiQ\">levi@caersultancy.com</a> avec le nom de ton équipe et ton sport, et tu reçois ton code en général le jour même.",
+    "pr.pilot": "Équipe pilote ?",
+    "q0": "Combien coûte RostiQ ?", "a0": "Free est gratuit, pour toujours : une équipe organise toute une saison avec. Pro coûte 39 € par équipe et par saison (sélections, classement golf, e-mails, logo propre), et tu l'essaies d'abord 30 jours gratuitement. Les clubs paient 6 € par joueur actif et par saison pour toutes leurs équipes. Les joueurs ne paient jamais.",
     "m.tab1": "Disponibilités", "m.tab3": "Équipe", "m.sat": "sam", "m.away": "Extérieur", "m.ok": "Assez", "m.avail": "disponibles", "m.maybe": "peut-être",
     "m.yes": "Oui", "m.maybe2": "Peut-être", "m.no": "Non", "m.carT": "2 voitures · 3 places libres", "m.carS": "Départ 13:40 à l'église",
     "m.calT": "Dans ton agenda", "m.calS": "Tous les matchs en un clic",
@@ -713,17 +818,17 @@ const TXT = {
     "c3": "on est combien là ??", "c4": "qui conduit ? j'ai pas de voiture", "c5": "Quelqu'un peut compter svp 😩", "pain.calm": "Réglé",
     "fix1": "Chacun répond en un clic : oui, peut-être ou non.", "fix2": "Tu vois tout de suite si vous êtes assez : vert, orange ou rouge.",
     "fix3": "Ceux qui n'ont pas répondu reçoivent un rappel dans le groupe.", "fix4": "Le covoiturage s'organise tout seul : qui conduit, qui monte.",
-    "b1": "app à installer", "b2": "clic par match", "b3": "langues : NL · FR · EN", "b4": "pendant le pilote",
+    "b1": "app à installer", "b2": "clic par match", "b3": "langues : NL · FR · EN", "b4": "pour les joueurs, toujours",
     "feat.k": "Tout ce dont ton équipe a besoin", "feat.h": "Conçu pour le samedi matin.",
     "feat.lead": "Pas un réseau social de plus. Juste ce qu'un capitaine doit régler chaque semaine. Rapide, clair, sur ton téléphone.",
     "f.car.h": "Covoiturage avec temps de trajet et CO₂", "f.car.p": "Qui conduit, combien de places, qui habite près. RostiQ affiche la distance, le temps de trajet et l'heure de départ, et le CO₂ que vous économisez ensemble.",
     "f.car.free": "1 place libre", "f.car.seat": "Place libre",
     "f.tap.h": "Répondre en un clic", "f.tap.p": "Oui, peut-être ou non par match. Le total passe au vert dès que vous êtes assez.",
-    "f.wa.h": "Pensé pour WhatsApp", "f.wa.p": "Rappels, infos de match et plan de covoiturage prêts à coller dans ton groupe. Ou écris directement à quelqu'un.",
+    "f.wa.h": "Des rappels qui marchent", "f.wa.p": "Une notification 3 jours et 1 jour avant le match, avec les boutons de réponse dedans. Et tout est prêt à coller dans ton groupe WhatsApp.",
     "f.cal.h": "Directement dans ton agenda", "f.cal.p": "Tous les matchs avec heure et adresse dans ton propre agenda, sur iPhone, Android ou Outlook.",
     "f.app.h": "Pas d'app, et pourtant une app", "f.app.p": "Fonctionne via un simple lien. Tu la veux sur ton écran d'accueil ? C'est possible, et ça marche même hors ligne.",
-    "f.brand.h": "Aux couleurs de ton club", "f.brand.p": "Ton logo, tes couleurs, ta police. Tes joueurs voient ton équipe, pas nous.",
-    "f.stats.h": "Qui est toujours là ?", "f.stats.p": "Pour chaque joueur, tu vois combien de fois il était disponible, a conduit ou est monté. Pratique pour la sélection, et pour un covoiturage équitable.",
+    "f.brand.h": "Sélections et réserves", "f.brand.p": "Compose l'équipe par match. Si quelqu'un se désiste, le premier réserviste monte tout seul et reçoit tout de suite une notification.",
+    "f.stats.h": "Classement golf avec RostiQ Points", "f.stats.p": "Stableford, net ou brut : saisis le résultat et le classement de toute la saison est là aussitôt, avec podium.",
     "f.priv.h": "La vie privée sans petits caractères", "f.priv.p": "Données dans l'UE, pas de pub, pas de pistage dans l'app. Seule ton équipe voit tes données, et tu effaces tout d'un bouton.",
     "how.k": "Comment ça marche", "how.h": "Prêt pour la saison en 3 étapes.",
     "s1.h": "Crée ton équipe", "s1.p": "Nom, sport, couleurs. Ajoute tes matchs en quelques clics.", "s1.t": "± 1 minute",
@@ -734,28 +839,26 @@ const TXT = {
     "cmp.k": "Pourquoi RostiQ", "cmp.h": "Le meilleur des deux mondes.", "cmp.lead": "Aussi simple qu'un groupe WhatsApp, aussi clair qu'une vraie app d'équipe.",
     "cmp.c1": "Liste WhatsApp", "cmp.c2": "App d'équipe classique", "cmp.r1": "Personne ne doit installer d'app", "cmp.r2": "Répondre en un clic",
     "cmp.r3": "En un coup d'œil : assez de joueurs ?", "cmp.r4": "Covoiturage avec distances et temps de trajet", "cmp.r5": "Rappels directement dans ton groupe WhatsApp", "cmp.r6": "Néerlandais, français et anglais",
-    "pr.k": "Prix", "pr.h": "Gratuit. Vraiment.", "pr.lead": "Pendant le pilote, tu ne paies rien, pour tout. Pas de carte de crédit, pas d'essai qui expire.",
-    "pr.team": "Équipe", "pr.per": "pendant le pilote", "pr.teamP": "Tout ce que RostiQ sait faire, pour toute ton équipe.",
-    "pr.l1": "Joueurs et matchs illimités", "pr.l2": "Disponibilités, covoiturage et agenda", "pr.l3": "Rappels et aperçus WhatsApp",
-    "pr.l4": "Ton logo et tes couleurs de club", "pr.l5": "Installable comme app, même hors ligne", "pr.cta": "Crée ton équipe",
-    "pr.club": "Club", "pr.clubA": "Sur mesure", "pr.clubP": "Plusieurs équipes sous un même toit, avec un seul style de club. Parle-nous-en et on le met en place ensemble.",
-    "pr.c1": "Toutes les équipes de ton club", "pr.c2": "Un seul style pour tous", "pr.c3": "Aide personnelle au démarrage", "pr.clubCta": "Contacte-nous",
+    "pr.k": "Tarifs", "pr.h": "Gratuit pour toute ton équipe.", "pr.lead": "Les joueurs ne paient jamais et ne voient jamais de pub. Les équipes qui veulent plus paient un petit montant par saison.",
+    "pr.club": "Club", "pr.clubP": "Pro pour chaque équipe de ton club, une seule facture.",
+    "pr.c1": "Pro pour toutes les équipes du club", "pr.c2": "Page club, calendrier du club et annonces du club", "pr.c3": "Seuls les joueurs actifs comptent, min. 99 €, max. 1 500 €", "pr.clubCta": "Parle-nous",
     "faq.h": "Des questions ? Des réponses.",
-    "q1": "RostiQ est-il vraiment gratuit ?", "a1": "Oui. Pendant le pilote, tout est gratuit, sans carte de crédit. Si des options payantes pour clubs arrivent plus tard, tu le sauras bien à l'avance.",
+    "q1": "Faut-il une carte pour commencer ?", "a1": "Non. Commencer et l'essai de Pro sont gratuits, sans carte. Si tu veux garder Pro après l'essai, tu paies par saison par Bancontact, carte ou virement.",
     "q2": "Mes joueurs doivent-ils installer une app ?", "a2": "Non. Ils ouvrent le lien partagé dans le groupe et se connectent une fois avec Google ou un lien par e-mail. Qui veut peut mettre RostiQ sur son écran d'accueil.",
     "q3": "Ça marche sur iPhone et Android ?", "a3": "Oui, dans tout navigateur moderne : Safari, Chrome, Firefox, Edge. Sur téléphone, tablette et ordinateur.",
     "q4": "Qui voit nos données ?", "a4": "Uniquement les membres de ton équipe. Les données sont stockées dans l'UE (Belgique), nous n'affichons pas de pub et ne revendons rien. Ton numéro de portable n'apparaît nulle part sur le site. Plus d'infos dans notre <a href=\"https://app.rostiq.be/privacy.html\">déclaration de confidentialité</a>.",
     "q5": "Et si quelqu'un n'a pas WhatsApp ?", "a5": "Aucun problème : RostiQ fonctionne entièrement via le lien. WhatsApp est juste pratique pour partager des messages.",
-    "q6": "Peut-on mettre RostiQ aux couleurs du club ?", "a6": "Oui. En tant qu'administrateur, tu choisis ton logo, tes couleurs et ta police. Tes joueurs voient tout de suite ton style.",
+    "q6": "Peut-on mettre RostiQ aux couleurs du club ?", "a6": "Oui. Chacun choisit parmi des jeux de couleurs prêts à l'emploi. Avec Pro, tu ajoutes ton propre logo et les couleurs du club, et tes joueurs voient tout de suite votre style.",
     "q7": "En combien de temps puis-je commencer ?", "a7": "Ton équipe est en ligne en une minute. Ajoute les matchs, partage le lien, et les premières réponses arrivent.",
-    "end.h": "Prêt pour samedi ?", "end.p": "Mets ton équipe sur RostiQ dès aujourd'hui. Gratuit, en une minute, sans que personne n'ait rien à installer.", "end.signin": "J'ai déjà une équipe",
+    "end.h": "Prêt pour samedi ?", "end.p": "Mets ton équipe sur RostiQ dès aujourd'hui. Gratuit, en une minute, sans carte et sans que personne ne doive rien installer.", "end.signin": "J'ai déjà une équipe",
     "ft.privacy": "Confidentialité", "ft.by": "un projet de", "ft.contact": "Contact", "ft.cookies": "Cookies",
     "ck.title": "On peut mesurer ?", "ck.text": "Nous aimerions voir comment les visiteurs utilisent ce site, avec Google Analytics. Les cookies ne sont placés que si tu es d'accord. L'app elle-même ne te piste jamais.",
     "ck.no": "Non merci", "ck.yes": "D'accord",
     "doc.title": "RostiQ | Ton équipe organisée, sans app",
-    "doc.desc": "RostiQ est le planificateur des équipes sportives : disponibilités en un clic, covoiturage avec temps de trajet et rappels dans ton groupe WhatsApp. Personne n'a d'app à installer. Gratuit pendant le pilote.",
+    "doc.desc": "RostiQ est le planificateur des équipes sportives : disponibilités en un clic, covoiturage avec temps de trajet et rappels dans ton groupe WhatsApp. Personne n'a d'app à installer. Gratuit pour chaque équipe.",
     "og.title": "RostiQ | Arrête de compter dans le groupe WhatsApp",
     "og.desc": "Disponibilités, covoiturage et rappels pour ton équipe sportive sur un seul lien. Personne n'a rien à installer.",
+    "nav.clubs": "Pour les clubs", "f.new": "Nouveau", "cl.k": "Pour les clubs", "cl.h": "Toutes les équipes de ton club. Un seul aperçu.", "cl.lead": "Pour le secrétaire et le trésorier : pas dix groupes WhatsApp, mais une seule page club.", "cl.l1": "Tous les matchs de toutes les équipes dans un calendrier, les conflits en rouge", "cl.l2": "Une annonce à tout le club, et chacun reçoit une seule notification", "cl.l3": "Par équipe : combien de joueurs sont actifs, et qui ne répond jamais", "cl.l4": "Que des chiffres, pas de noms : la vie privée de tes joueurs reste protégée", "cl.cta": "Parle-nous", "cl.clash": "⚠️ Dim 9 nov · Messieurs 1 et Dames 1 à domicile en même temps à 14:30", "cl.active": "actifs", "cl.vets": "Vétérans", "pr.freePer": "toujours", "pr.freeP": "Tout pour organiser une saison.", "pr.f1": "Réponses, calendrier et covoiturage", "pr.f2": "Notifications et rappels automatiques", "pr.f3": "Alertes météo et lien agenda", "pr.f4": "Joueurs illimités, 2 administrateurs", "pr.freeCta": "Commencer gratuitement", "pr.pop": "Le plus choisi", "pr.proPer": "par équipe, par saison", "pr.proP": "Pour le capitaine qui veut que l'équipe tourne toute seule.", "pr.p1": "Tout Free", "pr.p2": "Sélections, les réserves montent toutes seules", "pr.p3": "Classement golf avec RostiQ Points", "pr.p4": "Annonces et invitations par e-mail", "pr.p5": "Logo et couleurs propres, export et sauvegarde", "pr.proCta": "Essayer Pro 30 jours gratuitement", "pr.clubPer": "par joueur actif, par saison", "pr.c4": "Une facture par saison", "pr.pilotB": "Tu gardes Pro gratuitement jusqu'à la fin de la saison 2026-27, puis -50 %.",
   },
 };
 </script>
