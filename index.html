@@ -29,9 +29,9 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:wght@400;500;600;700;800;900&display=optional"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Geist:wght@400;500;600;700;800&display=optional">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Geist:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Geist:wght@400;500;600;700;800&display=optional"></noscript>
 <script type="application/ld+json">
 [
  {
@@ -131,15 +131,15 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
 </script>
 <style>
   /* RostiQ website. Calm and light: white, black type, one soft highlight, a real product screenshot. */
-  @font-face { font-family: "Noto Sans fallback"; src: local("Arial"); size-adjust: 100%; ascent-override: 106.9%; descent-override: 29.3%; line-gap-override: 0%; }
+  @font-face { font-family: "Geist fallback"; src: local("Arial"); size-adjust: 100%; ascent-override: 100%; descent-override: 26%; line-gap-override: 0%; }
   :root {
-    --ink: #111111; --ink-2: #37352f; --muted: #6f6e69; --line: #e9e9e7; --soft: #f7f6f3; --white: #fff;
+    --ink: #14122b; --ink-2: #3b3955; --muted: #67657e; --line: #e3e0d6; --soft: #f4f3ef; --white: #fff;
     --accent: #2f2a8f; --accent-2: #4338ca; --blue-soft: #eef0ff;
     --mint: #dcf5e6; --mint-ink: #136c3a; --mint-dot: #22b35e;
     --peach: #ffe3cc; --sky: #d7ecff; --lilac: #e9defc; --lemon: #fff1b8; --rose: #ffdcdc; --sage: #dff0e2;
-    --yes: #2f7a4a; --yes-bg: #e1ecdc; --maybe: #9c7424; --maybe-bg: #f5e8cb; --no: #ad4a31; --no-bg: #f5ddd4;
+    --yes: #0b7d45; --yes-bg: #e0f5e9; --maybe: #96630f; --maybe-bg: #fbf0d9; --no: #c7313e; --no-bg: #fde6e8;
     --wa: #25d366; --radius: 14px; --ease: cubic-bezier(.2, .7, .2, 1);
-    --font: "Noto Sans", "Noto Sans fallback", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font: "Geist", "Geist fallback", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -393,9 +393,9 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   .noscript .rv { opacity: 1; transform: none; }
 </style>
 <style>
-  /* The app's look (Nov 2026): navy and cyan, Anton headings, a navy hero and closing call. */
+  /* The app's look (Nov 2026): navy and cyan, Bricolage Grotesque headings, a navy hero and closing call. */
   :root { --accent: #1e1b4b; --accent-2: #2a2668; --cyan: #00d4ff; --blue-soft: #ecebfa; --navy-text: #d6d4f0; }
-  h1, h2, .price .amount, .band b { font-family: Anton, var(--font); font-weight: 400; text-transform: uppercase; letter-spacing: .01em; }
+  h1, h2, .price .amount, .band b { font-family: "Bricolage Grotesque", var(--font); font-weight: 800; letter-spacing: -.03em; }
   h2 { line-height: 1.04; }
   .kicker { color: #5b4fd6; font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
   .btn { border-radius: 12px; font-weight: 800; }
@@ -407,8 +407,8 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   .btn-line:hover { background: var(--blue-soft); }
   .nav .btn-hot { background: var(--accent); color: #fff; }
   .hero { background: radial-gradient(1200px 520px at 50% -10%, #3a3590 0%, transparent 60%), var(--accent); color: #fff; }
-  .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1; letter-spacing: .005em; max-width: 12em; }
-  .hl { background: none; color: var(--cyan); padding: 0; font-weight: 400; letter-spacing: .005em; }
+  .hero h1 { font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; letter-spacing: -.035em; max-width: 13em; }
+  .hl { background: none; color: var(--cyan); padding: 0; font-weight: inherit; letter-spacing: inherit; }
   .hl::before { display: none; }
   .eyebrow { color: var(--cyan); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: .78rem; }
   .hero .lead { color: var(--navy-text); }
@@ -433,7 +433,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   .club-band li { display: flex; gap: 10px; }
   .club-band li::before { content: "✓"; color: var(--cyan); font-weight: 900; }
   .club-card { background: #fff; color: var(--ink); border-radius: 22px; padding: 18px; display: grid; gap: 6px; box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6); }
-  .club-card .cn { font-family: Anton, var(--font); font-size: 1.5rem; text-transform: uppercase; }
+  .club-card .cn { font-family: "Bricolage Grotesque", var(--font); font-weight: 800; font-size: 1.35rem; letter-spacing: -.02em; }
   .club-card .clash { background: var(--no-bg); color: var(--no); font-weight: 700; font-size: .84rem; border-radius: 12px; padding: 9px 11px; margin: 4px 0; }
   .club-card .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .9rem; padding: 9px 2px; border-top: 1px solid var(--line); }
   .club-card .row:first-of-type { border-top: 0; }
