@@ -397,13 +397,41 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
   .consent b { color: var(--ink); }
   .consent div { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
   .consent .btn { padding: 9px 16px; font-size: .88rem; }
+
+  /* Menu on phones and tablets: the section links in a panel under the bar. */
+  .menu-btn { display: none; width: 40px; height: 40px; border: 0; border-radius: 12px; background: var(--soft); cursor: pointer; place-content: center; gap: 5px; padding: 0; order: 9; }
+  .menu-btn span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--ink); transition: transform .2s; }
+  .nav.open .menu-btn span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .nav.open .menu-btn span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+  @media (max-width: 900px) {
+    .menu-btn { display: grid; }
+    .nav.open .links { display: grid; position: absolute; left: 12px; right: 12px; top: 62px; gap: 2px; padding: 8px; margin: 0;
+      background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 18px 50px -12px rgb(17 17 17 / .3); }
+    .nav.open .links a { padding: 13px 14px; font-size: 1rem; font-weight: 600; color: var(--ink); }
+  }
+  @media (max-width: 560px) {
+    .nav .wrap { gap: 10px; }
+    .lang a { padding: 9px 7px; }
+    .nav .btn { padding: 9px 12px; }
+    /* Footer links big enough to tap. */
+    footer nav { gap: 4px 6px; }
+    footer a { display: inline-block; padding: 11px 6px; }
+    footer nav a:first-child { margin-left: -6px; }
+  }
+
+  /* French and long words: the price cards never grow wider than the screen. */
+  @media (max-width: 900px) { .prices { grid-template-columns: minmax(0, 1fr); } .price .btn { white-space: normal; text-align: center; } }
+
+  /* Demo cards and features are both on white: one normal gap between them, not two. */
+  .demo-sec { padding-bottom: 46px !important; }
+  .demo-sec + #features { padding-top: 46px !important; }
 </style>
 </head>
 <body>
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="RostiQ"><img src="/assets/rostiq-logo-dark.webp" alt="RostiQ" width="114" height="26"></a>
-    <nav class="links">
+    <nav class="links" id="nav-links">
       <a href="#demo" data-t="nav.demo">Demo</a>
       <a href="#how" data-t="nav.how">Hoe het werkt</a>
       <a href="#features" data-t="nav.features">Functies</a>
@@ -412,6 +440,7 @@ if (/[?&](t|pick|demo|mode|oobCode|apiKey)(=|&|$)/.test(location.search)) locati
       <a href="#faq" data-t="nav.faq">FAQ</a>
     </nav>
     <div class="right">
+      <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
       <div class="lang" role="group" aria-label="Language" data-no-icons>
         <a data-lang="nl" href="/padel/" hreflang="nl" aria-current="true">NL</a><a data-lang="fr" href="/fr/padel/" hreflang="fr">FR</a><a data-lang="en" href="/en/padel/" hreflang="en">EN</a>
       </div>
@@ -769,6 +798,13 @@ document.querySelectorAll(".lang a").forEach(a => a.addEventListener("click", ()
   if (saved || here === "nl") { const a = document.querySelector(`.lang a[data-lang="${want}"]`); if (a) location.replace(a.href); }
 })();
 const nav = document.querySelector(".nav");
+{ // The menu button on phones: opens the section links; a link, Escape or a tap elsewhere closes it.
+  const btn = nav.querySelector(".menu-btn"), set = open => { nav.classList.toggle("open", open); btn.setAttribute("aria-expanded", open); };
+  btn.addEventListener("click", ev => { ev.stopPropagation(); set(!nav.classList.contains("open")); });
+  nav.querySelectorAll(".links a").forEach(a => a.addEventListener("click", () => set(false)));
+  document.addEventListener("click", ev => { if (!nav.contains(ev.target)) set(false); });
+  document.addEventListener("keydown", ev => { if (ev.key === "Escape") set(false); });
+}
 const vid = document.querySelector(".frame video");
 if (vid && matchMedia("(prefers-reduced-motion: reduce)").matches) { vid.removeAttribute("autoplay"); vid.pause(); }
 addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
